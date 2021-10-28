@@ -1,27 +1,26 @@
+
 package com.grupo9.ArbolandoRosario.Entidades;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import lombok.Data;
+import java.io.Serializable;
+
 
 @Data
 @Entity
-public class Arbol implements Serializable {
+public class Articulo {
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idArbol;
+    private Long idArticulo;
 
-    private String nombre;
-    private String nombreCientifico;
-    private TipoArbol tipoArbol;
-    private String origen;
-    private String tamanho;
-    private String informacion;
+    private String url_imagen;
+    private Arbol arbol;
+    private Usuario usuario;
 
 }
