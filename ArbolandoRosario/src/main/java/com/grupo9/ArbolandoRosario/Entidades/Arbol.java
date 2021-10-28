@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import lombok.Data;
 
 @Data
@@ -19,6 +20,8 @@ public class Arbol implements Serializable {
 
     private String nombre;
     private String nombreCientifico;
+
+    @OneToOne
     private TipoArbol tipoArbol;
     private String origen;
     private String tamanho;
