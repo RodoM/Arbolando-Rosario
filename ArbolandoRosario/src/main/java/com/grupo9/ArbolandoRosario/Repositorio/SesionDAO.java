@@ -1,9 +1,9 @@
 package com.grupo9.ArbolandoRosario.Repositorio;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.grupo9.ArbolandoRosario.Entidades.Sesion;
+import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author camil
- */
-public interface SesionDAO {
+@Repository
+public interface SesionDAO extends JpaRepository<Sesion, Long>{
 
 }

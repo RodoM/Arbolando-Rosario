@@ -1,5 +1,10 @@
 package com.grupo9.ArbolandoRosario.Repositorio;
 
-public interface ArbolDAO {
+import com.grupo9.ArbolandoRosario.Entidades.Arbol;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ArbolDAO extends JpaRepository<Arbol, Long> {
 
 }
