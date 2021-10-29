@@ -23,6 +23,7 @@ public class Arbol implements Serializable {
 
     @OneToOne
     private TipoArbol tipoArbol;
+
     private String origen;
     private String tamanho;
     private String informacion;

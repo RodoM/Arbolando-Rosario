@@ -1,12 +1,12 @@
 package com.grupo9.ArbolandoRosario.Entidades;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToOne;
 import lombok.Data;
+import java.io.Serializable;
 
 @Data
 @Entity
@@ -23,5 +23,4 @@ public class Articulo implements Serializable {
     private Arbol arbol;
     @OneToOne
     private Usuario usuario;
-
 }

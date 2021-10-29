@@ -12,5 +12,6 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUsuario;
     private String avatar;
-    private Sesion sesion;
+    private String mail;
+    private String contrasenha;
 }
