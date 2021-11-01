@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 import com.grupo9.ArbolandoRosario.Entidades.Usuario;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UsuarioServicio {
     @Autowired
     private UsuarioDAO usuarioDao;
