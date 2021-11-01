@@ -7,9 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.OneToOne;
 import lombok.Data;
 import java.io.Serializable;
+import javax.persistence.Table;
 
 @Data
 @Entity
+@Table(name = "articulo")
 public class Articulo implements Serializable {
 
     private static final long serialVersionUID = 1L;
