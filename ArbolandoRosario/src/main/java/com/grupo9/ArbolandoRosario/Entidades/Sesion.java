@@ -5,12 +5,12 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "usuario")
-public class Usuario implements Serializable {
+@Table(name = "sesion")
+public class Sesion implements Serializable{
     private static final long serialVersionUID= 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idUsuario;
-    private String avatar;
-    private Sesion sesion;
+    private Integer idSesion;
+    private String mail;
+    private String contrasenha;
 }
