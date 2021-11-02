@@ -17,54 +17,55 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- CSS -->
-    <link rel="stylesheet" href="#" />
+    <link rel="stylesheet" href="../static/css/Styles.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap" rel="stylesheet" />
     <title>Arbolando Rosario</title>
   </head>
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    
+    <nav class=" nav navbar navbar-expand-lg sticky-top justify-content-end navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <a class="navbar-brand" href="./Index.html">Arbolando Rosario</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/Index">Inicio</a>
+              <a class="nav-link" href="./Explorar.html">Explorar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/Explorar">Explorar</a>
+              <a class="nav-link" href="./Incio-Sesion.html">Iniciar Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/Inicio-Sesion">Iniciar Sesión</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/Registro">Registrarse</a>
+              <a class="nav-link" href="./Registro.html">Registrarse</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="contenedor">
-      <section class="uno">
-        <h1>Pagina1</h1>
-        <button type="button" class="btn btn-primary">Primary</button>
-      </section>
-      <section class="dos">
-        <h1>Pagina2</h1>
-      </section>
-      <section class="tres">
-        <h1>Pagina3</h1>
-      </section>
-    </div>
+
+    <section class="uno">
+      <h1 class="display-1 animate__animated animate__fadeInLeft">Arbolando Rosario</h1>
+      <!-- <button type="button" class="btn btn-primary">Explorar Arboles</button> -->
+    </section>
+    <section class="dos">
+      <h1 class="display-1 pos wow animate__animated animate__fadeInLeft" data-aos="fade-left">Info del proyecto</h1>
+      <div class="desc wow animate__animated animate__fadeInRight">
+        Lorem ipsum dolor sit amet consectetur adipiscing elit nibh proin pellentesque vulputate blandit, vestibulum tempor duis congue sollicitudin enim massa orci per class commodo. Cras velit sollicitudin viverra elementum fusce fringilla risus neque, class gravida lectus nascetur integer ad potenti, vehicula condimentum quam inceptos aenean dapibus porta. Rutrum enim sapien a potenti augue elementum sem curae nisl, vivamus viverra bibendum turpis scelerisque euismod per dignissim, condimentum pellentesque conubia tortor cras velit curabitur imperdiet.
+        Habitant iaculis ullamcorper venenatis ridiculus donec eu suscipit fermentum rhoncus non volutpat lobortis condimentum nec, tristique et elementum est vivamus magna consequat nascetur torquent vulputate interdum ultricies. Fermentum augue hac aliquet eros tristique sollicitudin magna duis, at vestibulum a pellentesque dis mauris nisi lacinia bibendum, dui sapien primis hendrerit scelerisque ultrices rhoncus. Pulvinar ac non rhoncus fames sodales accumsan suscipit egestas cum diam, sem fusce feugiat odio purus facilisis dictum inceptos pretium, lacinia porta fringilla litora turpis mollis pharetra montes morbi.
+      </div>
+    </section>
+
+    <script src="../static/js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
   </body>
 </html>

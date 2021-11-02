@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: #FEFAE0;
+    text-align: var(--bs-body-text-align);
+    background-color: var(--bs-body-bg);
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+
+    background: url(../img/BG.png);
+}
+
+section {
+    height: 100vh;
+}
+
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: rgba(96,108,56,1)!important;
+}
+
+.navbar-light .navbar-brand {
+    color: #DDA15E;
+}
+
+.navbar-brand {
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: 'Halant', serif;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #FEFAE0;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url(../img/nav-icon.png);
+}
+
+.navbar-light .navbar-toggler {
+    color: #DDA15E;
+    border-color: rgba(221, 161, 94, 0.3);
+}
+
+.center-items {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+@media (min-width: 1200px){
+    .display-1 {
+        line-height: 75%;
+        font-family: 'Halant', serif;
+        
+        width: 50%; 
+    }
+}
+
+.display-1 {
+    font-size: calc(3.5rem + 4.5vw);
+    font-weight: 300;
+    line-height: 75%;
+    font-family: 'Halant', serif;
+
+    position: absolute;
+    top: 13%;
+    left: 3%;
+    right: 3%;
+}
+
+.display-1.pos {
+    top: 120%;
+}
+
+.desc {
+    font-size: 1.25rem;
+    position: absolute;
+    top: 145%;
+    left: 3%;
+    right: 3%;
+}
+
+.h5, h5 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.card{
+    overflow: hidden;
+    border: 0 !important;
+    border-radius: 20px !important;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    transition: all 400ms ease-out;
+	cursor: default;
+}
+
+.card-body{
+    padding: 2rem;
+    background: #606C38;
+}  
+  
+.title{
+    margin-bottom: 2rem;
+    font-weight: bold;
+}
+
+.card:hover{
+	box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+	transform: translateY(-3%);
+}
+
+.btn-primary {
+    color: #FEFAE0;
+    background-color: #DDA15E;
+    border-color: #DDA15E;
+    border-radius: 50px;
+    font-size: calc(1.5rem + 1.5vw);
+    font-weight: bold;
+    transition: 0.5s;
+
+    position: absolute;
+    top: 45%;
+    align-items: center;
+}
+
+.btn-primary:hover {
+    background: #BC6C25;
+    border-color: #BC6C25;
+}
