@@ -25,7 +25,8 @@ public class TipoArbolServicio {
 
     @Transactional
     public void eliminar(TipoArbol tipoArbol) {
-        tipoArbolDAO.delete(tipoArbol);
+        tipoArbol.setAlta(false);
+        tipoArbolDAO.save(tipoArbol);
     }
 
     @Transactional(readOnly = true)
