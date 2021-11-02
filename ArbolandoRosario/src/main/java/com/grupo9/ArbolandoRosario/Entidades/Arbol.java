@@ -22,6 +22,7 @@ public class Arbol implements Serializable {
 
     private String nombre;
     private String nombreCientifico;
+    private boolean alta;
 
     @OneToOne
     private TipoArbol tipoArbol;

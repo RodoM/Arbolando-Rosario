@@ -13,5 +13,6 @@ public class TipoArbol implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTipoArbol;
+    private boolean alta;
     private String nombre;
 }
