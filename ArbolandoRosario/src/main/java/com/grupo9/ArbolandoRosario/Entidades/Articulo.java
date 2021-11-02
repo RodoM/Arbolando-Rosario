@@ -20,7 +20,7 @@ public class Articulo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idArticulo;
     private String url_imagen;
-
+    private boolean alta;
     @OneToOne
     private Arbol arbol;
     @OneToOne
