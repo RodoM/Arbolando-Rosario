@@ -22,7 +22,8 @@ public class ArticuloServicio {
     }
     @Transactional
     public void eliminar(Articulo articulo){
-        articuloDAO.delete(articulo);
+        articulo.setAlta(false);
+        articuloDAO.save(articulo);
     }
     @Transactional(readOnly = true)
     public Articulo encontrarArticuloPorId(Long id){

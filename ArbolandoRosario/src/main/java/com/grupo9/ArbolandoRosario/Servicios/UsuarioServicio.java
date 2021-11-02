@@ -23,7 +23,8 @@ public class UsuarioServicio {
 
     @Transactional
     public void eliminar(Usuario usuario){
-        usuarioDao.delete(usuario);
+        usuario.setAlta(false);
+        usuarioDao.save(usuario);
     }
 
     @Transactional(readOnly = true)
