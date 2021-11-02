@@ -1,0 +1,89 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.card{
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.img-left{
+  width: 45%;
+  background: url(../img/trees1.jpg) center;
+  background-size: cover;
+}
+
+.card-body{
+  padding: 2rem;
+  background: #606C38;
+}  
+
+.title{
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.form-input{
+  position: relative;
+}
+
+.form-input input{
+  width: 100%;
+  height: 45px;
+  padding-left: 40px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: none;
+  border: 1px solid #FEFAE0;
+  border-radius: 50px;
+  outline: none;
+  background: transparent;
+}
+
+.form-input input::placeholder{
+  color: #FEFAE0;
+  padding-left: 0px;
+}
+
+.form-input input:focus, .form-input input:valid{
+  border: 2px solid #BC6C25;
+}
+
+.form-input input:focus::placeholder{
+  color: #454b69;
+}
+
+.form-box button[type="submit"]{
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  background: #DDA15E;
+  color: #FEFAE0;
+  
+  font-size: 90%;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  transition: 0.5s;
+  padding: 12px;
+}
+
+.form-box button[type="submit"]:hover{
+  background: #BC6C25;
+}
+
+.forget-link, .register-link{
+  color: #DDA15E;
+  font-weight: bold;
+}
+
+.forget-link:hover, .register-link:hover{
+  color: #BC6C25;
+  text-decoration: none;
+}
