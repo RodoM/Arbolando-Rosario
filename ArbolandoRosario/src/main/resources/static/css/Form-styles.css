@@ -10,12 +10,18 @@
   overflow: hidden;
   border: 0 !important;
   border-radius: 20px !important;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.7);
 }
 
 .img-left{
   width: 45%;
   background: url(../img/trees1.jpg) center;
+  background-size: cover;
+}
+
+.img-left2{
+  width: 45%;
+  background: url(../img/trees2.jpg) center;
   background-size: cover;
 }
 
@@ -27,13 +33,37 @@
 .title{
   margin-bottom: 2rem;
   font-weight: bold;
+  color: #DDA15E;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #FEFAE0;
+  background-color: #606C38;
+  background-clip: padding-box;
+  border: 1px solid #FEFAE0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50px;
+}
+
+input[type="file"]:focus,
+.uneditable-input:focus {   
+  border: 2px solid #BC6C25;
+  box-shadow: none;
 }
 
 .form-input{
   position: relative;
 }
 
-.form-input input{
+.form-input input, .form-input textarea {
   width: 100%;
   height: 45px;
   padding-left: 40px;
@@ -46,12 +76,14 @@
   background: transparent;
 }
 
-.form-input input::placeholder{
+
+.form-input input::placeholder, .form-input textarea::placeholder{
   color: #FEFAE0;
   padding-left: 0px;
 }
 
-.form-input input:focus, .form-input input:valid{
+.form-input input:focus, .form-input input:valid 
+.form-input textarea:focus, .form-input textarea:valid{
   border: 2px solid #BC6C25;
 }
 
