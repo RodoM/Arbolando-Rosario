@@ -18,64 +18,74 @@
       crossorigin="anonymous"
     ></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../static/css/Form-styles.css" />
+    <link rel="stylesheet" href="../static/css/Styles.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap" rel="stylesheet">
     <title>Registrarse</title>
   </head>
   <body>
     
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <!-- Navbar -->
+    <nav class=" nav navbar navbar-expand-lg sticky-top justify-content-end navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <a class="navbar-brand" href="./Index.html">Arbolando Rosario</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/Index">Inicio</a>
+              <a class="nav-link" href="./Explorar.html">Explorar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/Explorar">Explorar</a>
+              <a class="nav-link" href="./Incio-Sesion.html">Iniciar Sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/Inicio-Sesion">Iniciar Sesión</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/Registro">Registrarse</a>
+              <a class="nav-link" href="./Registro.html">Registrarse</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
+    <!-- Formulario registro -->
     <div class="contenedor">
-      <form action="registrarse" method="POST">
-        <div class="mb-3">
-          <label for="inputNombreUsuario" class="form-label">Nombre de usuario:</label>
-          <input type="text" class="form-control" name="nombreusuario" id="nombreusuario" aria-describedby="emailHelp" />
+      <div class="container">
+        <div class="row px-3">
+          <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+            <div class="img-left d-none d-md-flex"></div>
+            <div class="card-body">
+              <h4 class="title text-center mt-4">Registrarse</h4>
+              <form class="form-box px-3">
+                <div class="form-input">
+                  <input type="email" name="nombreusuario" id="nombreusuario" placeholder="Nombre de usuario" tabindex="10" required>
+                </div>
+                <div class="form-input">
+                  <input type="email" name="email" id="email" placeholder="Correo electronico" tabindex="10" required>
+                </div>
+                <div class="form-input">
+                  <input type="password" name="contrasenha1" id="contrasenha1" placeholder="Contraseña" required>
+                </div>
+                <div class="form-input">
+                  <input type="password" name="contrasenha2" id="contrasenha2" placeholder="Repetir contraseña" required>
+                </div>
+                <div class="mb-3 text-center">
+                  <button type="submit" class="btn btn-block text-uppercase">Registrarse</button>
+                </div>
+                <hr class="my-4">
+                <div class="text-center mb-2">
+                  ¿Ya tienes cuenta?
+                  <a href="../templates/Incio-Sesion.html" class="register-link">Inicia sesión aqui</a>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="inputEmail" class="form-label">Correo electronico:</label>
-          <input type="email" class="form-control" name="email" id="email" />
-        </div>
-        <div class="mb-3">
-          <label for="inputContrasenha1" class="form-label">Contraseña:</label>
-          <input type="password" class="form-control" name="contrasenha1" id="contrasenha1" />
-        </div>
-        <div class="mb-3">
-          <label for="inputContrasenha2" class="form-label">Repetir contraseña:</label>
-          <input type="password" class="form-control" name="contrasenha2" id="contrasenha2" />
-        </div>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
-      </form>
+      </div>
     </div>
+
   </body>
 </html>
