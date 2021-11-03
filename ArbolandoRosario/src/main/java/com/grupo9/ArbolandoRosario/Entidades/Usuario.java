@@ -1,5 +1,6 @@
 package com.grupo9.ArbolandoRosario.Entidades;
 
+import com.grupo9.ArbolandoRosario.enums.Rol;
 import java.io.Serializable;
 import javax.persistence.*;
 import lombok.Data;
@@ -13,6 +14,10 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
+
+    @Enumerated(EnumType.STRING)
+    private Rol rol;
+
     private boolean alta;
     private String avatar;
     private String mail;
