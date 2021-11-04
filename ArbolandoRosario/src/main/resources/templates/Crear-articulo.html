@@ -11,13 +11,8 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
     <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/Form-styles.css" />
     <link rel="stylesheet" href="../static/css/Styles.css" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,62 +22,54 @@
     <style></style>
   </head>
   <body>
-      
-    <nav class=" nav navbar navbar-expand-lg sticky-top justify-content-end navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="./Index.html">Arbolando Rosario</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="./Explorar.html">Explorar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./Incio-Sesion.html">Iniciar Sesión</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./Registro.html">Registrarse</a>
-            </li>
-          </ul>
+    <!-- Navbar template -->
+    <nav th:replace="/plantillas/navbar :: navbar"></nav>
+    <!-- Formulario para crear el artículo -->
+    <div class="d-flex align-items-center min-vh-100">
+      <div class="container">
+        <div class="row px-3">
+          <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+            <div class="img-left2 d-none d-md-flex"></div>
+    
+            <div class="card-body">
+              <h4 class="title text-center mt-4">Crear artículo</h4>
+              <form class="form-box px-3">
+                <div class="form-input">
+                  <input type="text" name="nombrearbol" id="nombrearbol" placeholder="Nombre del arbol" tabindex="10" required>
+                </div>
+                <div class="form-input">
+                  <input type="text" name="nombrecientifico" id="nombrecientifico" placeholder="Nombre cientifico del arbol" required>
+                </div>
+                <div class="form-input">
+                  <input type="text" name="tipo" id="tipo" placeholder="Tipo de arbol" required>
+                </div>
+                <div class="form-input">
+                  <input type="text" name="origen" id="origen" placeholder="Origen del arbol" required>
+                </div>
+                <div class="form-input">
+                  <input type="number" name="tamanho" id="tamanho" placeholder="Tamaño en centímetros" required>
+                </div>
+                <div class="mb-3">
+                  <input class="form-control" type="file" name="foto" id="foto" accept="image/png, image/jpeg">
+                </div>
+                <div class="form-input">
+                  <textarea name="info" id="info" placeholder="Descripción" required></textarea>
+                </div>
+                <div class="mb-3 text-center">
+                  <button type="submit" class="btn btn-block text-uppercase">Crear artículo</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-
-    <div class="container">
-      <form action="registrarse" method="POST">
-        <div class="mb-3">
-          <label for="inputNombreArbol" class="form-label">Nombre del árbol:</label>
-          <input type="text" class="form-control" name="nombrearbol" id="nombrearbol" />
-        </div>
-        <div class="mb-3">
-          <label for="inputNombreCientifico" class="form-label">Nombre científico:</label>
-          <input type="text" class="form-control" name="nombrecientifico" id="nombrecientifico" />
-        </div>
-        <div class="mb-3">
-          <label for="inputTipo" class="form-label">Tipo de árbol:</label>
-          <input type="text" class="form-control" name="tipo" id="tipo" />
-        </div>
-        <div class="mb-3">
-          <label for="inputOrigen" class="form-label">Origen:</label>
-          <input type="text" class="form-control" name="origen" id="origen" />
-        </div>
-        <div class="mb-3">
-          <label for="inputTamanho" class="form-label">Tamaño:</label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected></option>
-            <option value="pequeno">Pequeño (-50cm)</option>
-            <option value="mediano">Mediano (50-2000cm)</option>
-            <option value="grande">Grande (+2000cm)</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="inputInfo" class="form-label">Informacion general:</label>
-          <textarea class="form-control" name="info" id="info"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
-      </form>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
