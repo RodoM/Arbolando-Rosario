@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -21,28 +21,8 @@
     <title>Explorar</title>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="nav navbar navbar-expand-lg sticky-top navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="./Index.html">Arbolando Rosario</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="./Explorar.html">Explorar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./Incio-Sesion.html">Iniciar Sesión</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./Registro.html">Registrarse</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <!-- Navbar template -->
+    <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Contenedor de las cartas -->
     <div class="contenedor" style="margin-top: 1%; margin-left: 3%; margin-right: 3%;">
       <div class="row row-cols-1 row-cols-md-5 g-4">

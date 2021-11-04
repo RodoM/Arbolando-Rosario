@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,7 +18,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/Styles.css" />
+    <link rel="stylesheet" href="/css/Styles.css" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,54 +29,19 @@
     <title>Arbolando Rosario</title>
   </head>
   <body>
+    <!-- Navbar template -->
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
-    <!-- Navbar 
-    <nav
-      class="
-        nav
-        navbar navbar-expand-lg
-        sticky-top
-        justify-content-end
-        navbar-light
-        bg-light
-      "
-    >
-      <div class="container-fluid">
-        <a class="navbar-brand" href="./Index.html">Arbolando Rosario</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="./Explorar.html">Explorar</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./Incio-Sesion.html">Iniciar Sesión</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./Registro.html">Registrarse</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>  -->
     <!-- Seccion 1 del index (titulo y boton) -->
-    <section class="index">
-      <h1 class="display-1 animate__animated animate__fadeInLeft">
+    <section class="index" id="seccion-uno">
+      <h1 class="display-1 wow animate__animated animate__fadeInLeft">
         Arbolando Rosario
       </h1>
+      <button type="button" class="btn btn-primary pos">Explorar</button>
+      <a href="#seccion-dos"><div class="arrow"></div></a>
+      <img src="/img/Vector.svg" alt="" class="img-pos1">
     </section>
     <!-- Seccion 2 del index (Info. del proyecto) -->
-    <section class="index">
+    <section class="index" id="seccion-dos">
       <div class="text-bg">
         <h1
           class="display-1 pos wow animate__animated animate__fadeInLeft"
@@ -105,6 +70,7 @@
           litora turpis mollis pharetra montes morbi.
         </div>
       </div>
+      <img src="/img/Vector2.svg" alt="" class="img-pos2">
     </section>
 
     <!-- Bootstrap JS -->
@@ -114,7 +80,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- Wow JS -->
-    <script src="../static/js/wow.min.js"></script>
+    <script src="/js/wow.min.js"></script>
     <script>
       new WOW().init();
     </script>
