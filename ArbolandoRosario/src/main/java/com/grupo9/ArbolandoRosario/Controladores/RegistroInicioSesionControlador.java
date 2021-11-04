@@ -16,4 +16,9 @@ public class RegistroInicioSesionControlador {
     public String registro(Model model) {
         return "Registro";
     }
+    
+    @GetMapping("/logout")
+    public String logout(Model model) {
+        return "redirect:/";
+    }
 }
