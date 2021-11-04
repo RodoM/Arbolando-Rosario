@@ -17,7 +17,6 @@ public class RegistroInicioSesionControlador {
     public String login(Model model, Usuario usuario) {
         return "Inicio-Sesion";
     }
-    
     @GetMapping("/registro")
     public String registro(Model model, Usuario usuario) {
         return "Registro";
@@ -26,5 +25,9 @@ public class RegistroInicioSesionControlador {
     public String registroSend(Model model, Usuario usuario) {
         usuarioServicio.guardar(usuario);
         return "redirect:/Index";
+    }
+    @GetMapping("/logout")
+    public String logout(Model model) {
+        return "redirect:/";
     }
 }
