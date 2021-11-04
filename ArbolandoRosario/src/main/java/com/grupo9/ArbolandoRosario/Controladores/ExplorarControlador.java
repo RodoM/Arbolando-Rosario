@@ -13,7 +13,7 @@ import com.grupo9.ArbolandoRosario.Servicios.ArticuloServicio;
 public class ExplorarControlador {
     @Autowired
     private ArticuloServicio articuloServicio;
-    @GetMapping("/explorar")
+    @GetMapping("/Explorar")
     public String inicio(Model model){
         //Por ahora se agregan la lista con todos los articulos
         //Luego ver tema de paginación
