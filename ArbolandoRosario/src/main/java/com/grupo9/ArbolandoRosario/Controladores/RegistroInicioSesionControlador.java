@@ -9,7 +9,7 @@ public class RegistroInicioSesionControlador {
 
     @GetMapping("/login")
     public String login(Model model) {
-        return "Incio-Sesion";
+        return "Inicio-Sesion";
     }
 
     @GetMapping("/registro")
