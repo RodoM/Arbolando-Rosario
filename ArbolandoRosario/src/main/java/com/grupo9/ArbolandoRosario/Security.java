@@ -34,8 +34,8 @@ public class Security extends WebSecurityConfigurerAdapter { //le indica a sprin
                 .loginProcessingUrl("/logincheck") //esta es x defecto de spring security
                 .failureUrl("/login?error=error")
                 .permitAll()
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/");
-
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
+                .and().csrf().disable();
     }
 
 }
