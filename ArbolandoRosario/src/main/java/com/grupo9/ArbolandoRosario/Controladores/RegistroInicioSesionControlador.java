@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.grupo9.ArbolandoRosario.Entidades.Usuario;
+import com.grupo9.ArbolandoRosario.Errores.ErrorServicio;
 import com.grupo9.ArbolandoRosario.Servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,11 +24,17 @@ public class RegistroInicioSesionControlador {
     }
     @PostMapping("/registro")
     public String registroSend(Model model, Usuario usuario) {
-        usuarioServicio.guardar(usuario);
-        return "redirect:/Index";
+        try{
+            usuarioServicio.guardar(usuario);
+            return "redirect:/Index";
+        }catch(ErrorServicio e){
+            model.addAttribute("Error", e.getMessage());
+            return "Registro";
+        }
     }
     @GetMapping("/logout")
     public String logout(Model model) {
+        model.addAttribute("success", "El usuario se ha deslogeado correctamente");
         return "redirect:/";
     }
 }
