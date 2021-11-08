@@ -1,6 +1,8 @@
 package com.grupo9.ArbolandoRosario.Servicios;
 
 import com.grupo9.ArbolandoRosario.Repositorio.UsuarioDAO;
+import com.grupo9.ArbolandoRosario.enums.Rol;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,6 +44,8 @@ public class UsuarioServicio implements UserDetailsService {
         }
 
         usuario.setContrasenha(encoder.encode(usuario.getContrasenha()));
+        usuario.setAlta(true);
+        usuario.setRol(Rol.USER);
         usuarioDao.save(usuario);
     }
 
