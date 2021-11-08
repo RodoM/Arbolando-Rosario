@@ -68,8 +68,7 @@ public class UsuarioServicio implements UserDetailsService {
             Usuario usuario = usuarioDao.findByMailIgnoreCase(mail);
             User user;
             List<GrantedAuthority> permisos = new ArrayList<>();
-            //aca se agregarian los permisos q va a recibir el usuario pero como esta parte tdvia n la vimos la dejo en blanco
-            //permisos.add(new SimpleGrantedAuthority(ACA SE LLAMARIA EL ENUM))
+            permisos.add(new SimpleGrantedAuthority("ROLE_"+usuario.getRol()));
             return new User(mail, usuario.getContrasenha(), permisos);
         } catch (Exception e) {
             throw new UsernameNotFoundException("No existe ningun usuario registrado bajo ese email");
