@@ -33,27 +33,28 @@
             <div class="img-left2 d-none d-md-flex"></div>
             <div class="card-body">
               <h4 class="title text-center mt-4">Crear artículo</h4>
-              <form class="form-box px-3" action="/crear-articulo" method="POST">
+              <form class="form-box px-3" th:action="@{/crear-articulo}" method="POST">
+                <input hidden th:field=*{id}>
                 <div class="form-input">
-                  <input type="text" name="nombrearbol" id="nombrearbol" placeholder="Nombre del arbol" tabindex="10" required>
+                  <input type="text" name="nombre" id="nombre" th:field=*{arbol.nombre} placeholder="Nombre del arbol" tabindex="10" required>
                 </div>
                 <div class="form-input">
-                  <input type="text" name="nombrecientifico" id="nombrecientifico" placeholder="Nombre cientifico del arbol" required>
+                  <input type="text" name="nombreCientifico"  id="nombreCientifico" th:field=*{arbol.nombreCientifico} placeholder="Nombre cientifico del arbol" required>
                 </div>
                 <div class="form-input">
-                  <input type="text" name="tipo" id="tipo" placeholder="Tipo de arbol" required>
+                  <input type="text" name="tipo" id="tipo" th:field=*{nombre} placeholder="Tipo de arbol" required>
                 </div>
                 <div class="form-input">
-                  <input type="text" name="origen" id="origen" placeholder="Origen del arbol" required>
+                  <input type="text" name="origen" id="origen" th:field=*{arbol.origen} placeholder="Origen del arbol" required>
                 </div>
                 <div class="form-input">
-                  <input type="number" name="tamanho" id="tamanho" placeholder="Tamaño en centímetros" required>
+                  <input type="number" name="tamanho" id="tamanho" th:field=*{arbol.tamanho} placeholder="Tamaño en metros" required>
                 </div>
                 <div class="mb-3">
-                  <input class="form-control" type="file" name="foto" id="foto" accept="image/png, image/jpeg">
+                  <input class="form-control" type="file" name="foto" id="foto" th:field=*{url_imagen} accept="image/png, image/jpeg">
                 </div>
                 <div class="form-input">
-                  <textarea name="info" id="info" placeholder="Descripción" required></textarea>
+                  <textarea name="info" id="info" th:field=*{arbol.informacion} placeholder="Descripción" required></textarea>
                 </div>
                 <div class="mb-3 text-center">
                   <button type="submit" class="btn btn-block text-uppercase">Crear artículo</button>
