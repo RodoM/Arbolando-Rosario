@@ -34,7 +34,7 @@
               <h4 class="title text-center mt-4">Registrarse</h4>
               <form class="form-box px-3">
                 <div class="form-input">
-                  <input type="email" name="nombreusuario" id="nombreusuario" placeholder="Nombre de usuario" tabindex="10" required>
+                  <input type="text" name="nombreusuario" id="nombreusuario" placeholder="Nombre de usuario" tabindex="10" required>
                 </div>
                 <div class="form-input">
                   <input type="email" name="email" id="email" placeholder="Correo electronico" tabindex="10" required>
@@ -48,7 +48,7 @@
                 <hr class="my-4">
                 <div class="text-center mb-2">
                   ¿Ya tienes cuenta?
-                  <a href="/login" class="register-link">Inicia sesión aqui</a>
+                  <a th:href="@{/login}" class="register-link">Inicia sesión aqui</a>
                 </div>
               </form>
             </div>
