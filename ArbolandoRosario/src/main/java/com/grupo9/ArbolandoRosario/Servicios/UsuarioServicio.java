@@ -33,9 +33,6 @@ public class UsuarioServicio implements UserDetailsService {
     public void guardar(Usuario usuario) throws ErrorServicio {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-        if (usuario.getAvatar().isEmpty() || usuario.getAvatar() == null) {
-            throw new ErrorServicio("El avatar no puede estar vacio");
-        }
         if (usuario.getMail().isEmpty() || usuario.getMail() == null) {
             throw new ErrorServicio("El correo no puede estar vacio");
         }
