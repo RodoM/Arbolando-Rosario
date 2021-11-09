@@ -32,7 +32,7 @@
             <div class="img-left d-none d-md-flex"></div>
             <div class="card-body">
               <h4 class="title text-center mt-4">Iniciar Sesión</h4>
-              <form th:action="${/login}" th:object="${usuario}" method="GET" class="form-box px-3">
+              <form th:action="@{/login}" th:object="${usuario}" method="GET" class="form-box px-3">
                 <div class="form-input">
                   <input type="email" th:name="mail" th:field="*{mail}" id="mail" placeholder="Correo Electronico" tabindex="10" required>
                 </div>
