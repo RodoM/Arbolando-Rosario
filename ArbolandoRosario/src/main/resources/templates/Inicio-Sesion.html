@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -33,7 +33,7 @@
     
             <div class="card-body">
               <h4 class="title text-center mt-4">Iniciar Sesión</h4>
-              <form class="form-box px-3">
+              <form action="/login" method="GET" class="form-box px-3">
                 <div class="form-input">
                   <input type="email" name="nombreusuario" id="nombreusuario" placeholder="Correo Electronico" tabindex="10" required>
                 </div>
