@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -31,10 +31,9 @@
         <div class="row px-3">
           <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
             <div class="img-left2 d-none d-md-flex"></div>
-    
             <div class="card-body">
               <h4 class="title text-center mt-4">Crear artículo</h4>
-              <form class="form-box px-3">
+              <form class="form-box px-3" action="/crear-articulo" method="POST">
                 <div class="form-input">
                   <input type="text" name="nombrearbol" id="nombrearbol" placeholder="Nombre del arbol" tabindex="10" required>
                 </div>
