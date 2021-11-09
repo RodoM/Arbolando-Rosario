@@ -1,7 +1,10 @@
 
 package com.grupo9.ArbolandoRosario.Controladores;
 import com.grupo9.ArbolandoRosario.Entidades.Articulo;
+import com.grupo9.ArbolandoRosario.Errores.ErrorServicio;
 import com.grupo9.ArbolandoRosario.Servicios.ArticuloServicio;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +27,11 @@ public class ArticuloControlador {
     }
     @PostMapping("/crear-articulo")
     public String guardarArticulo(Model model, Articulo articulo){
-        articuloServicio.guardar(articulo);
+        try {
+            articuloServicio.guardar(articulo);
+        } catch (ErrorServicio ex) {
+            Logger.getLogger(ArticuloControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return "redirect:/Index";
     }
     @GetMapping("/articulo/{idAutor}")

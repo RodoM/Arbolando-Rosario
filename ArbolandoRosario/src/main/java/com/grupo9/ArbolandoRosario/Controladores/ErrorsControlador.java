@@ -16,7 +16,7 @@ public class ErrorsControlador implements ErrorController {
         int codigoError = (int) httpServletRequest.getAttribute("javax.servlet.error.status_code");
         switch (codigoError) {
             case 400:
-                mensajeError = "El recurso Solicitado No Exite";
+                mensajeError = "El recurso Solicitado No Existe";
                     break;
             case 401:
                 mensajeError = "El Usuario No se Encuentra Actualizado"; //es porque se necesita iniciar sesion
