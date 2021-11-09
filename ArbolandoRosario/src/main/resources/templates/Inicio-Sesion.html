@@ -30,15 +30,14 @@
         <div class="row px-3">
           <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
             <div class="img-left d-none d-md-flex"></div>
-    
             <div class="card-body">
               <h4 class="title text-center mt-4">Iniciar Sesión</h4>
-              <form action="/login" method="GET" class="form-box px-3">
+              <form th:action="${/login}" th:object="${usuario}" method="GET" class="form-box px-3">
                 <div class="form-input">
-                  <input type="email" name="nombreusuario" id="nombreusuario" placeholder="Correo Electronico" tabindex="10" required>
+                  <input type="email" th:name="mail" th:field="*{mail}" id="mail" placeholder="Correo Electronico" tabindex="10" required>
                 </div>
                 <div class="form-input">
-                  <input type="password" name="contrasenha" id="contrasenha" placeholder="Contraseña" required>
+                  <input type="password" th:name="contrasenha" th:field="*{contrasenha}" id="contrasenha" placeholder="Contraseña" required>
                 </div>
                 <div class="mb-3">
                   <div class="custom-control custom-checkbox">
@@ -52,7 +51,7 @@
                 <hr class="my-4">
                 <div class="text-center mb-2">
                   ¿No tienes cuenta?
-                  <a href="/registro" class="register-link">Registrate aqui</a>
+                  <a th:href="@{/registro}" class="register-link">Registrate aqui</a>
                 </div>
               </form>
             </div>
