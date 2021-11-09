@@ -26,66 +26,18 @@
     <!-- Contenedor de las cartas -->
     <div class="contenedor" style="margin-top: 1%; margin-left: 3%; margin-right: 3%;">
       <div class="row row-cols-1 row-cols-md-5 g-4">
-        <div class="col">
-          <div class="card art">
-            <img src="/img/arbol1.jpg" class="card-img-top" alt="..." height="300" style="object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <!-- Luego corregir si estan bien los nombres y agregar un a th:ref a cada carta con su articulo{id} -->
+        <div class="col" th:each="articulo : ${listadearticulos}">
+          <!-- <a th:href="@{/ver-articulo/ + id}"> -->
+            <div class="card art">
+              <img th:src="${articulo.url_imagen}" class="card-img-top" alt="..." height="300" style="object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title" th:text="${articulo.arbol.nombre}"></h5>
+                <p class="card-text" th:text="${articulo.arbol.informacion}" th:max="30"></p>
+              </div>
             </div>
-          </div>
+          <!-- </a> -->
         </div>
-        <!-- Cartas -->
-        <div class="col">
-          <div class="card art">
-            <img src="../static/img/arbol2.jpg" class="card-img-top" alt="..." height="300" style="object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card art">
-            <img src="../static/img/arbol1.jpg" class="card-img-top" alt="..." height="300" style="object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card art">
-            <img src="../static/img/arbol2.jpg" class="card-img-top" alt="..." height="300" style="object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card art">
-            <img src="../static/img/arbol1.jpg" class="card-img-top" alt="..." height="300" style="object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card art">
-            <img src="../static/img/arbol2.jpg" class="card-img-top" alt="..." height="300" style="object-fit: cover;">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
 

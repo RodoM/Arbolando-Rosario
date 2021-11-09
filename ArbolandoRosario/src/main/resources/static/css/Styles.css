@@ -137,6 +137,18 @@ section.index {
     font-weight: bold;
 }
 
+.error-title {
+    font-size: calc(3.5rem + 4.5vw);
+    font-weight: 300;
+    line-height: 75%;
+    font-family: 'Halant', serif;
+    color: #DDA15E;
+}
+
+.error-subtitle {
+    font-size: calc(1rem + 0.5vw);
+}
+
 .card.art:hover{
 	box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
 	transform: translateY(-3%);

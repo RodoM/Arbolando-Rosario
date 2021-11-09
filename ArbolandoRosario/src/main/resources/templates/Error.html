@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,12 +14,12 @@
     />
     <!-- CSS -->
     <link rel="stylesheet" href="/css/Form-styles.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/Styles.css" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap" rel="stylesheet">
-    <title>Inicio-Sesion</title>
+    <title>Error</title>
   </head>
   <body>
     <!-- Navbar template -->
@@ -29,32 +29,12 @@
       <div class="container">
         <div class="row px-3">
           <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
-            <div class="img-left d-none d-md-flex"></div>
     
-            <div class="card-body">
-              <h4 class="title text-center mt-4">Iniciar Sesión</h4>
-              <form class="form-box px-3">
-                <div class="form-input">
-                  <input type="email" name="nombreusuario" id="nombreusuario" placeholder="Correo Electronico" tabindex="10" required>
-                </div>
-                <div class="form-input">
-                  <input type="password" name="contrasenha" id="contrasenha" placeholder="Contraseña" required>
-                </div>
-                <div class="mb-3">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cb1" name="">
-                    <label class="custom-control-label" for="cb1">Recordarme</label>
-                  </div>
-                </div>
-                <div class="mb-3 text-center">
-                  <button type="submit" class="btn btn-block text-uppercase">Iniciar Sesión</button>
-                </div>
-                <hr class="my-4">
-                <div class="text-center mb-2">
-                  ¿No tienes cuenta?
-                  <a href="/registro" class="register-link">Registrate aqui</a>
-                </div>
-              </form>
+            <div class="card-body text-center">
+              <img src="/img/Snag.png" alt="">
+              <h4 class="error-title" th:text="'Error ' + ${codigo}"></h4>
+              <div class="error-subtitle" th:text="${mensaje}"></div>
+              <a th:href="@{/}"><button type="button" class="btn btn-primary">Volver al inicio</button></a>
             </div>
           </div>
         </div>
