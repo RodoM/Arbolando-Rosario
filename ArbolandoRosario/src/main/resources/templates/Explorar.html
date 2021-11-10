@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,9 +26,8 @@
     <!-- Contenedor de las cartas -->
     <div class="contenedor" style="margin-top: 1%; margin-left: 3%; margin-right: 3%;">
       <div class="row row-cols-1 row-cols-md-5 g-4">
-        <!-- Luego corregir si estan bien los nombres y agregar un a th:ref a cada carta con su articulo{id} -->
         <div class="col" th:each="articulo : ${listadearticulos}">
-          <!-- <a th:href="@{/ver-articulo/ + id}"> -->
+          <a th:href="@{/ver-articulo">
             <div class="card art">
               <img th:src="${articulo.url_imagen}" class="card-img-top" alt="..." height="300" style="object-fit: cover;">
               <div class="card-body">
@@ -36,7 +35,7 @@
                 <p class="card-text" th:text="${articulo.arbol.informacion}" th:max="30"></p>
               </div>
             </div>
-          <!-- </a> -->
+          </a>
         </div>
       </div>
     </div>

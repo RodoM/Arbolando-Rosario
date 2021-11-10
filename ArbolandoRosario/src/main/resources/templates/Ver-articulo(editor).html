@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -26,7 +26,7 @@
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Contenedor articulo -->
     <div class="d-flex align-items-center min-vh-100">
-        <div class="fila">
+        <div class="fila" th:action="@{/articulo/{idAutor}}">
           <!-- Contenedor foto y atributos -->
           <aside class="foto-atributos">
             <img class="img-fluid mx-auto d-block foto-arbol" th:src="${articulo.url_imagen}" alt="">
