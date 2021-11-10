@@ -8,6 +8,7 @@ import com.grupo9.ArbolandoRosario.Entidades.Usuario;
 import com.grupo9.ArbolandoRosario.Errores.ErrorServicio;
 import com.grupo9.ArbolandoRosario.Servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class RegistroInicioSesionControlador {
@@ -15,7 +16,10 @@ public class RegistroInicioSesionControlador {
     UsuarioServicio usuarioServicio;
 
     @GetMapping("/login")
-    public String login(Model model, Usuario usuario) {
+    public String login(Model model, Usuario usuario, @RequestParam(required = false) String error) {
+        if (error != null){
+            model.addAttribute("error", "El usuario ingresado o la contraseña son incorrectos");
+        }
         return "Inicio-Sesion";
     }
     @GetMapping("/registro")
@@ -28,13 +32,8 @@ public class RegistroInicioSesionControlador {
             usuarioServicio.guardar(usuario);
             return "redirect:/";
         }catch(ErrorServicio e){
-            model.addAttribute("Error", e.getMessage());
+            model.addAttribute("error", e.getMessage());
             return "Registro";
         }
-    }
-    @GetMapping("/logout")
-    public String logout(Model model) {
-        model.addAttribute("success", "El usuario se ha deslogeado correctamente");
-        return "redirect:/";
     }
 }

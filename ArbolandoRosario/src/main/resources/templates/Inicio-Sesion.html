@@ -28,22 +28,30 @@
     <div class="d-flex align-items-center min-vh-100">
       <div class="container">
         <div class="row px-3">
+          <div
+                th:if="${error != null}"
+                class="alert alert-danger alert-dismissible fade show"
+                role="alert"
+              >
+                <strong>Ha ocurrido un error! </strong>
+                <p th:text="${error}">Hola</p>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="alert"
+                  aria-label="Close"
+                ></button>
+              </div>
           <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
             <div class="img-left d-none d-md-flex"></div>
             <div class="card-body">
               <h4 class="title text-center mt-4">Iniciar Sesión</h4>
-              <form th:action="@{/login}" th:object="${usuario}" method="GET" class="form-box px-3">
+              <form th:action="@{/logincheck}" th:object="${usuario}" method="POST" class="form-box px-3">
                 <div class="form-input">
                   <input type="email" th:name="mail" th:field="*{mail}" id="mail" placeholder="Correo Electronico" tabindex="10" required>
                 </div>
                 <div class="form-input">
                   <input type="password" th:name="contrasenha" th:field="*{contrasenha}" id="contrasenha" placeholder="Contraseña" required>
-                </div>
-                <div class="mb-3">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="cb1" name="">
-                    <label class="custom-control-label" for="cb1">Recordarme</label>
-                  </div>
                 </div>
                 <div class="mb-3 text-center">
                   <button type="submit" class="btn btn-block text-uppercase">Iniciar Sesión</button>
