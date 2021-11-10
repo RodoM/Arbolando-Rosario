@@ -3,14 +3,14 @@ package com.grupo9.ArbolandoRosario.Controladores;
 import com.grupo9.ArbolandoRosario.Entidades.Articulo;
 import com.grupo9.ArbolandoRosario.Errores.ErrorServicio;
 import com.grupo9.ArbolandoRosario.Servicios.ArticuloServicio;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 @Controller
 public class ArticuloControlador {
@@ -30,9 +30,14 @@ public class ArticuloControlador {
 
     @PostMapping("/crear-articulo")
     public String guardarArticulo(RedirectAttributes redirectAttributes, Articulo articulo) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = authentication.getName();
         try {
-            articuloServicio.guardar(articulo);
+            articuloServicio.guardar(articulo, email);
         } catch (ErrorServicio ex) {
+            System.out.println("Ocurrio un error al guardar articulo");
+            System.out.println(ex.getMessage());
+            ex.printStackTrace();
             redirectAttributes.addFlashAttribute("error", ex.getMessage());
         }
         return "redirect:/";

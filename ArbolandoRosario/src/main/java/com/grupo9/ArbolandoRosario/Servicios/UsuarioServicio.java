@@ -36,6 +36,11 @@ public class UsuarioServicio implements UserDetailsService {
         if (usuario.getMail().isEmpty() || usuario.getMail() == null) {
             throw new ErrorServicio("El correo no puede estar vacio");
         }
+
+        if (encontrarMailYaRegistrado(usuario.getMail())) {
+            throw new ErrorServicio("El email ya se encuentra registrado");
+        }
+
         if (usuario.getContrasenha().isEmpty() || usuario.getContrasenha() == null || usuario.getContrasenha().length() < 6) {
             throw new ErrorServicio("La contraseña no puede tener menos de 6 caracteres");
         }
@@ -58,6 +63,14 @@ public class UsuarioServicio implements UserDetailsService {
         return resultado;
     }
 
+    public Usuario encontrarUsuarioPorMail(String mail) {
+        return usuarioDao.findByMailIgnoreCase(mail);
+    }
+
+    public boolean encontrarMailYaRegistrado(String mail) {
+        return usuarioDao.findByMailIgnoreCase(mail) != null;
+    }
+
     @Override   //este metodo lo implementa la interfaz, y se llama cuando un usuario se quiere loguear (como es un override se tiene q llamar asi, aunq nosotros autentiquemos por mail
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
 
@@ -65,7 +78,7 @@ public class UsuarioServicio implements UserDetailsService {
             Usuario usuario = usuarioDao.findByMailIgnoreCase(mail);
             User user;
             List<GrantedAuthority> permisos = new ArrayList<>();
-            permisos.add(new SimpleGrantedAuthority("ROLE_"+usuario.getRol()));
+            permisos.add(new SimpleGrantedAuthority("ROLE_" + usuario.getRol()));
             return new User(mail, usuario.getContrasenha(), permisos);
         } catch (Exception e) {
             throw new UsernameNotFoundException("No existe ningun usuario registrado bajo ese email");
