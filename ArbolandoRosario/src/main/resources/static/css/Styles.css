@@ -309,6 +309,22 @@ img.foto-arbol {
   animation-name: arrow;
 }
 
+.alert {
+    position: relative;
+    font-size: calc(1rem + 0.4vw);
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    z-index: 1001;
+}
+
+.alert-primary {
+    color: #FEFAE0;
+    background-color: #DDA15E;
+    border-color: #BC6C25;
+}
+
 @keyframes arrow {
   0% {
     opacity: 1;

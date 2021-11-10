@@ -1,4 +1,4 @@
-<html lang="es-AR" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="es-AR" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -29,11 +29,14 @@
             <li class="nav-item">
               <a class="nav-link" th:href="@{/explorar}">Explorar</a>
             </li>
-            <li class="nav-item">
+            <li sec:authorize="!isAuthenticated()" class="nav-item">
               <a class="nav-link" th:href="@{/login}">Iniciar Sesión</a>
             </li>
-            <li class="nav-item">
+            <li sec:authorize="!isAuthenticated()" class="nav-item">
               <a class="nav-link" th:href="@{/registro}">Registrarse</a>
+            </li>
+            <li sec:authorize="isAuthenticated()" class="nav-item">
+              <a class="nav-link" th:href="@{/logout}">Logout</a>
             </li>
           </ul>
         </div>

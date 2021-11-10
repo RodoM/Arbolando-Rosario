@@ -13,70 +13,40 @@
       crossorigin="anonymous"
     />
     <!-- Animate.css -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- CSS -->
     <link rel="stylesheet" href="/css/Styles.css" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap" rel="stylesheet" />
     <title>Arbolando Rosario</title>
   </head>
   <body>
     <!-- Navbar template -->
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
+    <!-- Alertas de inicio/salida de sesión -->
+    <div th:if="${param.logout}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
+      <strong>Felicidades! </strong>
+      <p>Has finalizado sesión con éxito!</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div th:if="${param.login}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
+      <strong>Felicidades! </strong>
+      <p>Has iniciado sesión con éxito!</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <!-- Seccion 1 del index (titulo y boton) -->
-    <div
-                th:if="${param.logout}"
-                class="alert alert-danger alert-dismissible fade show"
-                role="alert"
-              >
-                <strong>Felicidades! </strong>
-                <p>Has finalizado la sesión con éxito!</p>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="alert"
-                  aria-label="Close"
-                ></button>
-              </div>
-    <div
-              th:if="${param.login}"
-              class="alert alert-danger alert-dismissible fade show"
-              role="alert"
-            >
-              <strong>Felicidades! </strong>
-              <p>Has ingresado con éxito!</p>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close"
-              ></button>
-            </div>
     <section class="index" id="seccion-uno">
-      <h1 class="display-1 wow animate__animated animate__fadeInLeft">
-        Arbolando Rosario
-      </h1>
+      <h1 class="display-1 wow animate__animated animate__fadeInLeft">Arbolando Rosario</h1>
       <a th:href="@{/explorar}"><button type="button" class="btn btn-primary pos">Explorar</button></a>
       <a href="#seccion-dos"><div class="arrow"></div></a>
-      <img src="/img/Vector.svg" alt="" class="img-pos1">
+      <img src="/img/Vector.svg" alt="" class="img-pos1" />
     </section>
     <!-- Seccion 2 del index (Info. del proyecto) -->
     <section class="index" id="seccion-dos">
       <div class="text-bg">
-        <h1
-          class="display-1 pos wow animate__animated animate__fadeInLeft"
-          data-aos="fade-left"
-        >
-          Info del proyecto
-        </h1>
+        <h1 class="display-1 pos wow animate__animated animate__fadeInLeft" data-aos="fade-left">Info del proyecto</h1>
         <div class="desc wow animate__animated animate__fadeInRight">
           <br>
           <br>
@@ -102,7 +72,7 @@
           <h3><b>Tree9</b></h3> 
         </div>
       </div>
-      <img src="/img/Vector2.svg" alt="" class="img-pos2">
+      <img src="/img/Vector2.svg" alt="" class="img-pos2" />
     </section>
 
     <!-- Bootstrap JS -->

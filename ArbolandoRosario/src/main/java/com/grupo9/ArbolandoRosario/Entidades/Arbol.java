@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Data;
+import javax.persistence.CascadeType;
 
 @Data
 @Entity
@@ -24,7 +25,7 @@ public class Arbol implements Serializable {
     private String nombreCientifico;
     private boolean alta;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private TipoArbol tipoArbol;
 
     private String origen;
