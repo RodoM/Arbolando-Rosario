@@ -8,6 +8,7 @@ import javax.persistence.OneToOne;
 import lombok.Data;
 import java.io.Serializable;
 import javax.persistence.Table;
+import javax.persistence.CascadeType;
 
 @Data
 @Entity
@@ -21,8 +22,8 @@ public class Articulo implements Serializable {
     private Long idArticulo;
     private String url_imagen;
     private boolean alta;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private Arbol arbol;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     private Usuario usuario;
 }
