@@ -36,9 +36,4 @@ public class RegistroInicioSesionControlador {
             return "Registro";
         }
     }
-    @GetMapping("/logout")
-    public String logout(Model model) {
-        model.addAttribute("success", "El usuario se ha deslogeado correctamente");
-        return "redirect:/";
-    }
 }

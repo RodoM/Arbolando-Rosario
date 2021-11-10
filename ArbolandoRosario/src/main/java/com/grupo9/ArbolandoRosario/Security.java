@@ -30,11 +30,11 @@ public class Security extends WebSecurityConfigurerAdapter { //le indica a sprin
         http.authorizeRequests().antMatchers("/css/*", "/img/*", "/js/*").permitAll()
                 .and().formLogin().loginPage("/login").usernameParameter("mail") //el usernameparameter es el name q tienen q usar SIOSI los de front
                 .passwordParameter("contrasenha") // y lo mismo para la contraseña
-                .defaultSuccessUrl("/") // aca se pone la pagina donde se envia al user desp de loguearse correctamente
+                .defaultSuccessUrl("/?login") // aca se pone la pagina donde se envia al user desp de loguearse correctamente
                 .loginProcessingUrl("/logincheck") //esta es x defecto de spring security
                 .failureUrl("/login?error=error")
                 .permitAll()
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/?logout")
                 .and().csrf().disable();
     }
 
