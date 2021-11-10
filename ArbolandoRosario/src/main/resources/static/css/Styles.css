@@ -78,13 +78,13 @@ section.index {
 }
 
 .display-1.pos {
-    top: 120%;
+    top: 115%;
 }
 
 .desc {
     font-size: 1.25rem;
     position: absolute;
-    top: 145%;
+    top: 140%;
     left: 3%;
     right: 3%;
     z-index: 1000;
