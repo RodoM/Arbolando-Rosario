@@ -5,9 +5,10 @@ import org.springframework.stereotype.Service;
 import com.grupo9.ArbolandoRosario.Repositorio.ArticuloDAO;
 import org.springframework.transaction.annotation.Transactional;
 import com.grupo9.ArbolandoRosario.Entidades.Articulo;
+import com.grupo9.ArbolandoRosario.Entidades.Usuario;
 import com.grupo9.ArbolandoRosario.Errores.ErrorServicio;
 import java.util.List;
-
+import com.grupo9.ArbolandoRosario.Servicios.UsuarioServicio;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -16,14 +17,16 @@ public class ArticuloServicio {
     
     @Autowired
     private ArticuloDAO articuloDAO;
-    
+    @Autowired
+    private UsuarioServicio usuarioServicio;
     @Transactional(readOnly = true)
     public List<Articulo> listarArticulos() {
         return articuloDAO.findAll();
     }
     
     @Transactional
-    public void guardar(Articulo articulo) throws ErrorServicio {
+    public void guardar(Articulo articulo, String emailOfUser) throws ErrorServicio {
+        Usuario user = usuarioServicio.loadUserByUsername(mail);
         if (articulo.getUrl_imagen().isEmpty() || articulo.getUrl_imagen() == null) {
             throw new ErrorServicio("La imagen no puede estar vacia");
         }

@@ -49,8 +49,8 @@
                 <div class="form-input">
                   <input type="number" name="tamanho" id="tamanho" th:field=*{arbol.tamanho} placeholder="Tamaño en metros" required>
                 </div>
-                <div class="mb-3">
-                  <input class="form-control" type="file" name="foto" id="foto" th:field=*{url_imagen} accept="image/png, image/jpeg">
+                <div class="form-input">
+                  <input type="text" name="foto" id="foto" th:field=*{url_imagen} placeholder="Url de la imagen del arbol">
                 </div>
                 <div class="form-input">
                   <textarea name="info" id="info" th:field=*{arbol.informacion} placeholder="Descripción" required></textarea>

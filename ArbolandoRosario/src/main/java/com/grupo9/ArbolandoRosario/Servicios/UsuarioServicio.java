@@ -57,6 +57,9 @@ public class UsuarioServicio implements UserDetailsService {
         Usuario resultado = usuarioDao.findById(id).orElse(null);
         return resultado;
     }
+    public Usuario encontrarUsuarioPorMail(String mail){
+        return usuarioDao.findByMailIgnoreCase(mail);
+    }
 
     @Override   //este metodo lo implementa la interfaz, y se llama cuando un usuario se quiere loguear (como es un override se tiene q llamar asi, aunq nosotros autentiquemos por mail
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
