@@ -33,8 +33,7 @@
             <div class="img-left2 d-none d-md-flex"></div>
             <div class="card-body">
               <h4 class="title text-center mt-4">Crear artículo</h4>
-              <form class="form-box px-3" th:action="@{/crear-articulo}" method="POST">
-                <input hidden th:field=*{id}>
+              <form class="form-box px-3" th:action="@{/crear-articulo}" th:object="${articulo}" method="POST">
                 <div class="form-input">
                   <input type="text" name="nombre" id="nombre" th:field=*{arbol.nombre} placeholder="Nombre del arbol" tabindex="10" required>
                 </div>
@@ -42,7 +41,7 @@
                   <input type="text" name="nombreCientifico"  id="nombreCientifico" th:field=*{arbol.nombreCientifico} placeholder="Nombre cientifico del arbol" required>
                 </div>
                 <div class="form-input">
-                  <input type="text" name="tipo" id="tipo" th:field=*{nombre} placeholder="Tipo de arbol" required>
+                  <input type="text" name="tipoArbol" id="tipoArbol" th:field=*{arbol.tipoArbol.nombre} placeholder="Tipo de arbol" required>
                 </div>
                 <div class="form-input">
                   <input type="text" name="origen" id="origen" th:field=*{arbol.origen} placeholder="Origen del arbol" required>
