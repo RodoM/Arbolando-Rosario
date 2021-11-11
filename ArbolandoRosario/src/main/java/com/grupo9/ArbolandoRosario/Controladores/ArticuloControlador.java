@@ -35,9 +35,6 @@ public class ArticuloControlador {
         try {
             articuloServicio.guardar(articulo, email);
         } catch (ErrorServicio ex) {
-            System.out.println("Ocurrio un error al guardar articulo");
-            System.out.println(ex.getMessage());
-            ex.printStackTrace();
             redirectAttributes.addFlashAttribute("error", ex.getMessage());
         }
         return "redirect:/";
