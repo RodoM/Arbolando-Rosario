@@ -10,15 +10,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ArbolServicio {
-    
+
     @Autowired
     private ArbolDAO arbolDAO;
-    
+
     @Transactional(readOnly = true)
     public List<Arbol> listarArboles() {
         return arbolDAO.findAll();
     }
-    
+
     @Transactional
     public void guardar(Arbol arbol) throws ErrorServicio {
         if (arbol.getNombre().isEmpty() || arbol.getNombre() == null) {
@@ -27,6 +27,15 @@ public class ArbolServicio {
         if (arbol.getNombreCientifico().isEmpty() || arbol.getNombreCientifico() == null) {
             throw new ErrorServicio("El nombre cientifico del arbol no puede estar vacio");
         }
+
+        if (encontrarArbolRepetidoNombre(arbol.getNombre())) {
+            throw new ErrorServicio("Ya existe un arbol registrado bajo ese nombre");
+        }
+
+        if (encontrarArbolRepetidoNombreCientifico(arbol.getNombreCientifico())) {
+            throw new ErrorServicio("Ya existe un arbol registrado bajo ese nombre cientifico");
+        }
+
         if (arbol.getOrigen().isEmpty() || arbol.getOrigen() == null) {
             throw new ErrorServicio("El origen del arbol no puede estar vacio");
         }
@@ -42,17 +51,25 @@ public class ArbolServicio {
         arbol.setAlta(true);
         arbolDAO.save(arbol);
     }
-    
+
+    public boolean encontrarArbolRepetidoNombre(String nombre) {
+        return arbolDAO.findByNombreIgnoreCase(nombre) != null;
+    }
+
+    public boolean encontrarArbolRepetidoNombreCientifico(String nombreCientifico) {
+        return arbolDAO.findByNombreCientificoIgnoreCase(nombreCientifico) != null;
+    }
+
     @Transactional
     public void eliminar(Arbol arbol) {
         arbol.setAlta(false);
         arbolDAO.save(arbol);
     }
-    
+
     @Transactional(readOnly = true)
     public Arbol encontrarArbolPorId(Long id) {
         Arbol resultado = arbolDAO.findById(id).orElse(null);
         return resultado;
     }
-    
+
 }
