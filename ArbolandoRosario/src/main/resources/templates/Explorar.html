@@ -26,8 +26,8 @@
     <!-- Contenedor de las cartas -->
     <div class="contenedor" style="margin-top: 1%; margin-left: 3%; margin-right: 3%;">
       <div class="row row-cols-1 row-cols-md-5 g-4">
-        <div class="col" th:each="articulo : ${listadearticulos}">
-          <a th:href="@{/ver-articulo">
+        <div class="col" th:each="articulo : ${articulos}">
+          <a th:href="@{/articulo/$idArticulo}">
             <div class="card art">
               <img th:src="${articulo.url_imagen}" class="card-img-top" alt="..." height="300" style="object-fit: cover;">
               <div class="card-body">
@@ -43,19 +43,19 @@
     <br>
 
     <!-- Barra de paginas -->
-    <!-- <nav aria-label="Pagination">
+    <nav aria-label="Pagination">
       <ul class="pagination justify-content-center">
-        <li class="page-item" th:classappend="${prev == 0 ? 'disabled' : ''">
+        <li class="page-item" th:classappend="${prev == 0 ? 'disabled' : ''"}>
           <a class="page-link" href="#">Anterior</a>
         </li>
         <li class="page-item" th:each="page : ${pages}" th:classappend="{current == page ? 'active' : ''">
-          <a class="page-link" th:href="@{|/?page=${page}|" th:text="${page}"></a>
+          <a class="page-link" th:href="@{|/?page=${page}|}" th:text="${page}"></a>
         </li>
         <li class="page-item" th:classappend="${current == last ? 'disabled' : ''">
-          <a class="page-link" th:href="@{|/?page=${page}|">Siguiente</a>
+          <a class="page-link" th:href="@{|/?page=${page}|}">Siguiente</a>
         </li>
       </ul>
-    </nav> -->
+    </nav>
 
     <!-- Bootstrap JS -->
     <script
