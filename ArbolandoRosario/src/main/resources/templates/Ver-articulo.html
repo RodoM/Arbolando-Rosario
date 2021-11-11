@@ -26,33 +26,30 @@
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Contenedor articulo -->
     <div class="d-flex align-items-center min-vh-100">
-        <div class="fila">
+        <!-- <div class="fila" th:action="@{/articulo/{idAutor}}"> -->
           <!-- Contenedor foto y atributos -->
           <aside class="foto-atributos">
-            <img class="img-fluid mx-auto d-block foto-arbol" src="../static/img/arbol1.jpg" alt="">
+            <!-- <img class="img-fluid mx-auto d-block foto-arbol" th:src="${articulo.url_imagen}" alt=""> -->
             <hr class="my-4">
-            <div>
-              <p><span class="atributos">Nombre: </span>Palmera</p>
-              <p><span class="atributos">Nombre cientifico: </span>asd</p>
-              <p><span class="atributos">Tipo: </span>asd</p>
-              <p><span class="atributos">Origen: </span>asd</p>
-              <p><span class="atributos">Tamaño: </span>asd</p>
-            </div>
+            <!-- <div>
+              <p th:text="${articulo.arbol.nombre}"><span class="atributos">Nombre: </span></p>
+              <p th:text="${articulo.arbol.nombreCientifico}"><span class="atributos">Nombre cientifico: </span></p>
+              <p th:text="${articulo.arbol.tipoArbol.nombre}"><span class="atributos">Tipo: </span></p>
+              <p th:text="${articulo.arbol.origen}"><span class="atributos">Origen: </span></p>
+              <p th:text="${articulo.arbol.tamanho}"><span class="atributos">Tamaño: </span></p>
+            </div> -->
           </aside>
           <!-- Contenedor titulo e informacion -->
           <section class="articulo">
-            <h1 class="text-center nombre-arbol">Nombre del arbol</h1>
+            <!-- <h1 class="text-center nombre-arbol" th:text="${articulo.arbol.nombre}"></h1> -->
             <hr class="my-4">
-            <div class="info">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit nibh proin pellentesque vulputate blandit, vestibulum tempor duis congue sollicitudin enim massa orci per class commodo. Cras velit sollicitudin viverra elementum fusce fringilla risus neque, class gravida lectus nascetur integer ad potenti, vehicula condimentum quam inceptos aenean dapibus porta. Rutrum enim sapien a potenti augue elementum sem curae nisl, vivamus viverra bibendum turpis scelerisque euismod per dignissim, condimentum pellentesque conubia tortor cras velit curabitur imperdiet.
-              Habitant iaculis ullamcorper venenatis ridiculus donec eu suscipit fermentum rhoncus non volutpat lobortis condimentum nec, tristique et elementum est vivamus magna consequat nascetur torquent vulputate interdum ultricies. Fermentum augue hac aliquet eros tristique sollicitudin magna duis, at vestibulum a pellentesque dis mauris nisi lacinia bibendum, dui sapien primis hendrerit scelerisque ultrices rhoncus. Pulvinar ac non rhoncus fames sodales accumsan suscipit egestas cum diam, sem fusce feugiat odio purus facilisis dictum inceptos pretium, lacinia porta fringilla litora turpis mollis pharetra montes morbi.
-              <br>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit nibh proin pellentesque vulputate blandit, vestibulum tempor duis congue sollicitudin enim massa orci per class commodo. Cras velit sollicitudin viverra elementum fusce fringilla risus neque, class gravida lectus nascetur integer ad potenti, vehicula condimentum quam inceptos aenean dapibus porta. Rutrum enim sapien a potenti augue elementum sem curae nisl, vivamus viverra bibendum turpis scelerisque euismod per dignissim, condimentum pellentesque conubia tortor cras velit curabitur imperdiet.
-              Habitant iaculis ullamcorper venenatis ridiculus donec eu suscipit fermentum rhoncus non volutpat lobortis condimentum nec, tristique et elementum est vivamus magna consequat nascetur torquent vulputate interdum ultricies. Fermentum augue hac aliquet eros tristique sollicitudin magna duis, at vestibulum a pellentesque dis mauris nisi lacinia bibendum, dui sapien primis hendrerit scelerisque ultrices rhoncus. Pulvinar ac non rhoncus fames sodales accumsan suscipit egestas cum diam, sem fusce feugiat odio purus facilisis dictum inceptos pretium, lacinia porta fringilla litora turpis mollis pharetra montes morbi.
-              Lorem ipsum dolor sit amet consectetur adipiscing elit nibh proin pellentesque vulputate blandit, vestibulum tempor duis congue sollicitudin enim massa orci per class commodo. Cras velit sollicitudin viverra elementum fusce fringilla risus neque, class gravida lectus nascetur integer ad potenti, vehicula condimentum quam inceptos aenean dapibus porta. Rutrum enim sapien a potenti augue elementum sem curae nisl, vivamus viverra bibendum turpis scelerisque euismod per dignissim, condimentum pellentesque conubia tortor cras velit curabitur imperdiet.
-              Habitant iaculis ullamcorper venenatis ridiculus donec eu suscipit fermentum rhoncus non volutpat lobortis condimentum nec, tristique et elementum est vivamus magna consequat nascetur torquent vulputate interdum ultricies. Fermentum augue hac aliquet eros tristique sollicitudin magna duis, at vestibulum a pellentesque dis mauris nisi lacinia bibendum, dui sapien primis hendrerit scelerisque ultrices rhoncus. Pulvinar ac non rhoncus fames sodales accumsan suscipit egestas cum diam, sem fusce feugiat odio purus facilisis dictum inceptos pretium, lacinia porta fringilla litora turpis mollis pharetra montes morbi.
+            <!-- <div class="info" th:text="${articulo.arbol.informacion}"></div> -->
+            <hr class="my-4">
+            <!-- Verificar que si el usuario que ve el ariticulo es el autor se muestren los botones -->
+            <div sec:authorize="isAuthenticated()" class="text-center">
+              <button type="button" class="btn btn-primary">Editar</button>
+              <button type="button" class="btn btn-primary">Borrar</button>
             </div>
-            <hr class="my-4">
           </section>
         </div>
     </div>
