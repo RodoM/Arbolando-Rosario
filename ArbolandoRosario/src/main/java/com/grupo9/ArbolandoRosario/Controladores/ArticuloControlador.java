@@ -20,7 +20,7 @@ public class ArticuloControlador {
 
     @GetMapping("/articulo")
     public String articulo(Model model) {
-        return "Ver_articulo";
+        return "Ver-articulo";
     }
 
     @GetMapping("/crear-articulo")
