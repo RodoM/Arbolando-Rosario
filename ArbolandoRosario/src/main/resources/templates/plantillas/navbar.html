@@ -36,7 +36,15 @@
               <a class="nav-link" th:href="@{/registro}">Registrarse</a>
             </li>
             <li sec:authorize="isAuthenticated()" class="nav-item">
-              <a class="nav-link" th:href="@{/logout}">Logout</a>
+              <div class="dropdown">
+                <img src="/img/profilepicture.png" class="dropdown-toggle profile-pic" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" alt="">
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+                  <!-- idea: que aca se muestre el nombre de usuario y lo separe de los botones con un <hr> -->
+                  <li><a class="dropdown-item" href="#">Perfil</a></li>
+                  <li><a class="dropdown-item" href="#">Ajustes</a></li>
+                  <li><a class="dropdown-item" th:href="@{/logout}">Cerrar sesión</a></li>
+                </ul>
+              </div>
             </li>
           </ul>
         </div>
