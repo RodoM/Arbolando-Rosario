@@ -36,7 +36,9 @@ public class ArticuloControlador {
             articuloServicio.guardar(articulo, email);
         } catch (ErrorServicio ex) {
             redirectAttributes.addFlashAttribute("error", ex.getMessage());
+            return "redirect:/crear-articulo";
         }
+        redirectAttributes.addFlashAttribute("success", "Se ha creado el articulo con éxito");
         return "redirect:/";
     }
 

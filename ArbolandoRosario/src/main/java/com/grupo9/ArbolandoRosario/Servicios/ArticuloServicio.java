@@ -33,7 +33,6 @@ public class ArticuloServicio {
     public void guardar(Articulo articulo, String emailOfUser) throws ErrorServicio {
         Usuario user = usuarioServicio.encontrarUsuarioPorMail(emailOfUser);
         articulo.setUsuario(user);
-        System.out.println(user.getMail());
         if (articulo.getUrl_imagen().isEmpty() || articulo.getUrl_imagen() == null) {
             throw new ErrorServicio("La imagen no puede estar vacia");
         }
