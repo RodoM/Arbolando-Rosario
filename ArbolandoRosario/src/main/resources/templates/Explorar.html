@@ -25,7 +25,7 @@
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Contenedor de las cartas -->
     <div class="contenedor" style="margin-top: 1%; margin-left: 3%; margin-right: 3%;">
-      <div class="row row-cols-1 row-cols-md-5 g-4">
+      <div class="row row-cols-1 row-cols-md-5 g-4 justify-content-center text-center">
         <div class="col" th:each="articulo : ${listadearticulos}">
           <a th:href="@{/ver-articulo">
             <div class="card art">
