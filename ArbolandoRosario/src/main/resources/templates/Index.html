@@ -28,6 +28,11 @@
     <!-- Navbar template -->
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Alertas de inicio/salida de sesión -->
+    <div th:if="${success != null}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
+      <strong>Felicidades! </strong>
+      <p>Has creado el articulo con éxito!</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <div th:if="${param.logout}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
       <strong>Felicidades! </strong>
       <p>Has finalizado sesión con éxito!</p>

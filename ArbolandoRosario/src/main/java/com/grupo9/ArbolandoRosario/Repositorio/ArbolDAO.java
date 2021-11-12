@@ -7,4 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ArbolDAO extends JpaRepository<Arbol, Long> {
 
+    Arbol findByNombreIgnoreCase(String nombre);
+
+    Arbol findByNombreCientificoIgnoreCase(String nombreCientifico);
 }

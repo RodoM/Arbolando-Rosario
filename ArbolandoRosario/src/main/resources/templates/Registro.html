@@ -28,14 +28,7 @@
     <!-- Navbar template -->
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Formulario registro -->
-    <div class="contenedor">
-      <div class="container">
-        <div class="row px-3">
-          <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
-            <div class="img-left d-none d-md-flex"></div>
-            <div class="card-body">
-              <h4 class="title text-center mt-4">Registrarse</h4>
-              <div
+    <div
                 th:if="${error != null}"
                 class="alert alert-danger alert-dismissible fade show"
                 role="alert"
@@ -49,6 +42,14 @@
                   aria-label="Close"
                 ></button>
               </div>
+    <div class="contenedor">
+      <div class="container">
+        <div class="row px-3">
+          <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+            <div class="img-left d-none d-md-flex"></div>
+            <div class="card-body">
+              <h4 class="title text-center mt-4">Registrarse</h4>
+              
               <form
                 class="form-box px-3"
                 th:action="@{/registro}"
