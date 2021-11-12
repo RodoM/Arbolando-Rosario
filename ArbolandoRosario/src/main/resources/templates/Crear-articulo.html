@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="/css/Form-styles.css" />
     <link rel="stylesheet" href="/css/Styles.css" />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap" rel="stylesheet" />
     <title>Escribir un artículo</title>
     <style></style>
   </head>
@@ -27,20 +27,11 @@
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Formulario para crear el artículo -->
     <div class="d-flex align-items-center min-vh-100">
-      <div
-                th:if="${error != null}"
-                class="alert alert-danger alert-dismissible fade show"
-                role="alert"
-              >
-                <strong>Ha ocurrido un error! </strong>
-                <p th:text="${error}">Hola</p>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="alert"
-                  aria-label="Close"
-                ></button>
-              </div>
+      <div th:if="${error != null}" class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>Ha ocurrido un error! </strong>
+        <p th:text="${error}">Hola</p>
+        <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
       <div class="container">
         <div class="row px-3">
           <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
@@ -49,25 +40,32 @@
               <h4 class="title text-center mt-4">Crear artículo</h4>
               <form class="form-box px-3" th:action="@{/crear-articulo}" th:object="${articulo}" method="POST">
                 <div class="form-input">
-                  <input type="text" name="nombre" id="nombre" th:field=*{arbol.nombre} placeholder="Nombre del arbol" tabindex="10" required>
+                  <input type="text" name="nombre" id="nombre" th:field="*{arbol.nombre}" placeholder="Nombre del arbol" tabindex="10" required />
                 </div>
                 <div class="form-input">
-                  <input type="text" name="nombreCientifico"  id="nombreCientifico" th:field=*{arbol.nombreCientifico} placeholder="Nombre cientifico del arbol" required>
+                  <input
+                    type="text"
+                    name="nombreCientifico"
+                    id="nombreCientifico"
+                    th:field="*{arbol.nombreCientifico}"
+                    placeholder="Nombre cientifico del arbol"
+                    required
+                  />
                 </div>
                 <div class="form-input">
-                  <input type="text" name="tipoArbol" id="tipoArbol" th:field=*{arbol.tipoArbol.nombre} placeholder="Tipo de arbol" required>
+                  <input type="text" name="tipoArbol" id="tipoArbol" th:field="*{arbol.tipoArbol.nombre}" placeholder="Tipo de arbol" required />
                 </div>
                 <div class="form-input">
-                  <input type="text" name="origen" id="origen" th:field=*{arbol.origen} placeholder="Origen del arbol" required>
+                  <input type="text" name="origen" id="origen" th:field="*{arbol.origen}" placeholder="Origen del arbol" required />
                 </div>
                 <div class="form-input">
-                  <input type="number" name="tamanho" id="tamanho" th:field=*{arbol.tamanho} placeholder="Tamaño en metros" required>
+                  <input type="number" name="tamanho" id="tamanho" th:field="*{arbol.tamanho}" placeholder="Tamaño en metros" required />
                 </div>
                 <div class="form-input">
-                  <input type="text" name="foto" id="foto" th:field=*{url_imagen} placeholder="Url de la imagen del arbol">
+                  <input type="text" name="foto" id="foto" th:field="*{url_imagen}" placeholder="Url de la imagen del arbol" />
                 </div>
                 <div class="form-input">
-                  <textarea name="info" id="info" th:field=*{arbol.informacion} placeholder="Descripción" required></textarea>
+                  <textarea name="info" id="info" th:field="*{arbol.informacion}" placeholder="Descripción" required></textarea>
                 </div>
                 <div class="mb-3 text-center">
                   <button type="submit" class="btn btn-block text-uppercase">Crear artículo</button>
