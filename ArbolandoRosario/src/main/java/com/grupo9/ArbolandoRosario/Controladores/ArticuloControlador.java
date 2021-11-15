@@ -24,7 +24,7 @@ public class ArticuloControlador {
         return "Ver-articulo";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping("/crear-articulo")
     public String crear_articulo(Articulo articulo) {
         return "Crear-articulo";
