@@ -25,7 +25,7 @@
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Contenedor de las cartas -->
     <div th:if="${articulos.isEmpty()}">
-      <h1>No se encuentran articulos</h1>
+      <h1>No se encuentran artículos</h1>
     </div>
     <div th:if="${!articulos.isEmpty()}" class="contenedor" style="margin-top: 1%; margin-left: 3%; margin-right: 3%;">
       <div class="row row-cols-1 row-cols-md-5 g-4">

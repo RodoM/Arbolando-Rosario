@@ -473,11 +473,23 @@ a.dropdown-item {
     right: 15px;
 }
 
-.alert-center{
+.alert-center {
     position: absolute;
     left: 50%;
     top: 10%;
     transform: translate(-50%, 0);
+}
+
+.contenido-perfil {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img-perfil {
+    position: relative;
+    height: 270px;
+    border: 3px solid #DDA15E;
+    border-radius: 40px;
 }
 
 @media only screen and (max-width: 990px) {
