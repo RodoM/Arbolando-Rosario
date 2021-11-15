@@ -21,17 +21,20 @@ public class ExplorarControlador {
     @GetMapping("/explorar")
     public String inicio(@RequestParam Map<String, Object> params, Model model){
         int page = params.get("page") !=null ? Integer.valueOf(params.get("page").toString())-1 : 0;
-        PageRequest pageRequest = PageRequest.of(page, 10);
+        PageRequest pageRequest = PageRequest.of(page, 5);
         Page<Articulo> pageArticulo = articuloServicio.listarPaginas(pageRequest);
         int totalPages = pageArticulo.getTotalPages();
         if(totalPages>0){
             List<Integer> pages = IntStream.rangeClosed(1, totalPages).boxed().collect(Collectors.toList());
-            model.addAttribute("paginas", pages);
+            model.addAttribute("pages", pages);
         }
         model.addAttribute("articulos", pageArticulo.getContent());
         model.addAttribute("currentPage", page+1);
+        System.out.println(page+1);
         model.addAttribute("next", page+2);
         model.addAttribute("prev", page);
+        model.addAttribute("last", totalPages);
+        System.out.println("Total pages"+totalPages);
         return "Explorar";
     }
 }
