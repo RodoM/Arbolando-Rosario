@@ -30,7 +30,7 @@
     <div th:if="${!articulos.isEmpty()}" class="contenedor" style="margin-top: 1%; margin-left: 3%; margin-right: 3%;">
       <div class="row row-cols-1 row-cols-md-5 g-4">
         <div class="col" th:each="articulo : ${articulos}">
-          <a th:href="@{/articulo/$idArticulo}">
+          <a th:href="@{/mostrar}+'?id='+${articulo.idArticulo}">
             <div class="card art">
               <img th:src="${articulo.url_imagen}" class="card-img-top" alt="..." height="300" style="object-fit: cover;">
               <div class="card-body">

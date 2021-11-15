@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ArticuloControlador {
@@ -42,10 +43,10 @@ public class ArticuloControlador {
         return "redirect:/";
     }
 
-    @GetMapping("/articulo/{idAutor}")
-    public String buscarArticulo(Articulo articulo, Model model) {
-        articulo = articuloServicio.encontrarArticuloPorId(articulo.getIdArticulo());
-        model.addAttribute("articulo", articulo);
+    @GetMapping("/mostrar?id={idArticulo}")
+    public String buscarArticulo(@RequestParam(required = false) Long idArticulo, Model model) {
+        System.out.println(idArticulo + " idArticulo");
+        model.addAttribute("articulo", articuloServicio.encontrarArticuloPorId(idArticulo));
         return "Ver_articulo";
     }
 
