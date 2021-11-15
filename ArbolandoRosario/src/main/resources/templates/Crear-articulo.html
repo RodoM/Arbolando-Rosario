@@ -27,7 +27,7 @@
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Formulario para crear el artículo -->
     <div class="d-flex align-items-center min-vh-100">
-      <div th:if="${error != null}" class="alert alert-primary alert-dismissible fade show" role="alert">
+      <div th:if="${error != null}" class="alert alert-primary alert-dismissible fade show alert-center" role="alert">
         <strong>Ha ocurrido un error! </strong>
         <p th:text="${error}">Hola</p>
         <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
