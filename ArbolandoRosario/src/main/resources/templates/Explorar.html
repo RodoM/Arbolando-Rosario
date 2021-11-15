@@ -24,7 +24,10 @@
     <!-- Navbar template -->
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Contenedor de las cartas -->
-    <div class="contenedor" style="margin-top: 1%; margin-left: 3%; margin-right: 3%;">
+    <div th:if="${articulos.isEmpty()}">
+      <h1>No se encuentran articulos</h1>
+    </div>
+    <div th:if="${!articulos.isEmpty()}" class="contenedor" style="margin-top: 1%; margin-left: 3%; margin-right: 3%;">
       <div class="row row-cols-1 row-cols-md-5 g-4">
         <div class="col" th:each="articulo : ${articulos}">
           <a th:href="@{/articulo/$idArticulo}">
@@ -43,16 +46,16 @@
     <br>
 
     <!-- Barra de paginas -->
-    <nav aria-label="Pagination">
+    <nav th:if="${!articulos.isEmpty()}" aria-label="Pagination">
       <ul class="pagination justify-content-center">
-        <li class="page-item" th:classappend="${prev == 0 ? 'disabled' : ''"}>
-          <a class="page-link" href="#">Anterior</a>
+        <li class="page-item" th:classappend="${prev == 0 ? 'disabled' : ''}">
+          <a class="page-link" th:href="@{explorar(page=${prev})}">Anterior</a>
         </li>
-        <li class="page-item" th:each="page : ${pages}" th:classappend="{current == page ? 'active' : ''">
-          <a class="page-link" th:href="@{|/?page=${page}|}" th:text="${page}"></a>
+        <li class="page-item" th:each="page : ${pages}" th:classappend="${currentPage == page ? 'disabled' : ''}">
+          <a class="page-link" th:href="@{explorar(page=${page})}" th:text="${page}"></a>
         </li>
-        <li class="page-item" th:classappend="${current == last ? 'disabled' : ''">
-          <a class="page-link" th:href="@{|/?page=${page}|}">Siguiente</a>
+        <li class="page-item" th:classappend="${currentPage == last ? 'disabled' : ''}">
+          <a class="page-link" th:href="@{explorar(page=${next})}">Siguiente</a>
         </li>
       </ul>
     </nav>
