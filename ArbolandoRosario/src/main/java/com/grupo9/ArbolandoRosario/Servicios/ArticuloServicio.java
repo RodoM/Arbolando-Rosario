@@ -56,8 +56,7 @@ public class ArticuloServicio {
 
     @Transactional(readOnly = true)
     public Articulo encontrarArticuloPorId(Long id) {
-        Articulo resultado = articuloDAO.findById(id).orElse(null);
-        return resultado;
+        return articuloDAO.findById(id).orElse(null);
     }
 
     public Page<Articulo> listarPaginas(Pageable pageable) {

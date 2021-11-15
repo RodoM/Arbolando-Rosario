@@ -9,8 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.RequestParam;
+import java.util.Map;
 
 @Controller
 public class ArticuloControlador {
@@ -23,6 +26,7 @@ public class ArticuloControlador {
         return "Ver-articulo";
     }
 
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping("/crear-articulo")
     public String crear_articulo(Articulo articulo) {
         return "Crear-articulo";
@@ -42,11 +46,13 @@ public class ArticuloControlador {
         return "redirect:/";
     }
 
-    @GetMapping("/articulo/{idAutor}")
-    public String buscarArticulo(Articulo articulo, Model model) {
-        articulo = articuloServicio.encontrarArticuloPorId(articulo.getIdArticulo());
-        model.addAttribute("articulo", articulo);
-        return "Ver_articulo";
+    @GetMapping("/mostrar")
+    public String buscarArticulo(@RequestParam Map<String, Object> params, Model model, Articulo articulo) {
+        int idArticulo = params.get("id") !=null ? Integer.valueOf(params.get("id").toString()) : 0;
+        Long id = Long.valueOf(idArticulo);
+        System.out.println(id + " idArticulo");
+        model.addAttribute("articulo", articuloServicio.encontrarArticuloPorId(id));
+        return "Ver-articulo";
     }
 
 }
