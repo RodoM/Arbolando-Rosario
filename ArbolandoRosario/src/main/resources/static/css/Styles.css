@@ -468,6 +468,18 @@ a.dropdown-item {
     color: #BC6C25;
 }
 
+.contenido-perfil {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img-perfil {
+    position: relative;
+    height: 270px;
+    border: 3px solid #DDA15E;
+    border-radius: 40px;
+}
+
 @media only screen and (max-width: 990px) {
     .our-team{ margin-bottom: 30px; }
 }
