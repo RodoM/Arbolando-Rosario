@@ -8,7 +8,7 @@ public class PerfilControlador {
 
     @GetMapping("/perfil")
     public String perfil() {
-        return "Index";
+        return "Perfil";
     }
 
 }
