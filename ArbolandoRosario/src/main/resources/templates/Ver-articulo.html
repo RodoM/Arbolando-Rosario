@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/img/Oak Tree.png">
+    <link rel="icon" type="image/png" href="/img/Oak Tree.png" />
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -15,43 +15,33 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/css/Styles.css" />
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap" rel="stylesheet">
-    <title>Ver artículo</title>
-    <style></style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap" rel="stylesheet" />
+    <title>Explorar</title>
   </head>
   <body>
     <!-- Navbar template -->
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
-    <!-- Contenedor articulo -->
     <div class="d-flex align-items-center min-vh-100">
-        <div class="fila">
-          <!-- Contenedor foto y atributos -->
-          <aside class="foto-atributos">
-            <img class="img-fluid mx-auto d-block foto-arbol" th:src="${articulo.url_imagen}" alt="">
-            <hr class="my-4">
-            <div>
-              <p th:text="${articulo.arbol.nombre}"><span class="atributos">Nombre: </span></p>
-              <p th:text="${articulo.arbol.nombreCientifico}"><span class="atributos">Nombre cientifico: </span></p>
-              <p th:text="${articulo.arbol.tipoArbol.nombre}"><span class="atributos">Tipo: </span></p>
-              <p th:text="${articulo.arbol.origen}"><span class="atributos">Origen: </span></p>
-              <p th:text="${articulo.arbol.tamanho}"><span class="atributos">Tamaño: </span></p>
-            </div>
-          </aside>
-          <!-- Contenedor titulo e informacion -->
-          <section class="articulo">
-            <h1 class="text-center nombre-arbol" th:text="${articulo.arbol.nombre}"></h1>
-            <hr class="my-4">
-            <div class="info" th:text="${articulo.arbol.informacion}"></div> 
-            <hr class="my-4">
-            <!-- Verificar que si el usuario que ve el ariticulo es el autor se muestren los botones -->
-            <div sec:authorize="isAuthenticated()" class="text-center">
-              <button type="button" class="btn btn-primary">Editar</button>
-              <button type="button" class="btn btn-primary">Borrar</button>
-            </div>
-          </section>
+      <div class="container">
+        <div class="contenido-articulo">
+          <h1 class="nombre-perfil" th:text="${articulo.arbol.nombre}"></h1>
+          <img class="img-articulo" th:src="@{articulo.url_imagen}" alt="" />
+          <div class="info-articulo">
+            <p><span class="atributos">Nombre: </span><span th:text="${articulo.arbol.nombre}"></span></p>
+            <p><span class="atributos">Nombre científico: </span><span th:text="${articulo.arbol.nombreCientifico}"></span></p>
+            <p><span class="atributos">Tipo: </span><span th:text="${articulo.arbol.tipoArbol.nombre}"></span></p>
+            <p><span class="atributos">Origen: </span><span th:text="${articulo.arbol.origen}"></span></p>
+            <p><span class="atributos">Tamaño: </span><span th:text="${articulo.arbol.tamanho}"></span></p>
+          </div>
+          <div class="descripcion-articulo" th:text="${articulo.arbol.informacion}"></div>
+          <div sec:authorize="isAuthenticated()" class="text-center">
+            <button type="button" class="btn btn-primary">Editar</button>
+            <button type="button" class="btn btn-primary">Borrar</button>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Bootstrap JS -->

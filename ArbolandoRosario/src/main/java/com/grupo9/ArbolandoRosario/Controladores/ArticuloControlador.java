@@ -13,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestParam;
+import java.util.Map;
 
 @Controller
 public class ArticuloControlador {
@@ -45,11 +46,13 @@ public class ArticuloControlador {
         return "redirect:/";
     }
 
-    @GetMapping("/mostrar?id={idArticulo}")
-    public String buscarArticulo(@RequestParam(required = false) Long idArticulo, Model model) {
-        System.out.println(idArticulo + " idArticulo");
-        model.addAttribute("articulo", articuloServicio.encontrarArticuloPorId(idArticulo));
-        return "Ver_articulo";
+    @GetMapping("/mostrar")
+    public String buscarArticulo(@RequestParam Map<String, Object> params, Model model, Articulo articulo) {
+        int idArticulo = params.get("id") !=null ? Integer.valueOf(params.get("id").toString()) : 0;
+        Long id = Long.valueOf(idArticulo);
+        System.out.println(id + " idArticulo");
+        model.addAttribute("articulo", articuloServicio.encontrarArticuloPorId(id));
+        return "Ver-articulo";
     }
 
 }
