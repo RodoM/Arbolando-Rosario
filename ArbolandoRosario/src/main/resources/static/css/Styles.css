@@ -718,6 +718,11 @@ td {
   }
 }
 
+.pie-pagina{
+  margin-top: 6rem;
+  margin-left: 2rem;
+}
+
 footer #pie_pagina {
   position: relative;
   bottom: 0;
