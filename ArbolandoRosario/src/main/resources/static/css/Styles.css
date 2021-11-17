@@ -166,14 +166,14 @@ h5 {
 }
 
 .card-title {
-    text-transform: uppercase;
-    font-size: 25px;
+  text-transform: uppercase;
+  font-size: 25px;
 }
 
 .card-text {
-    color: #fefae0;
-    text-transform: lowercase;
-    font-size: 15px;
+  color: #fefae0;
+  text-transform: lowercase;
+  font-size: 15px;
 }
 
 .img-left {
@@ -644,6 +644,35 @@ td {
   grid-column: 1;
 }
 
+.contenedor-ajustes {
+  background-color: #606c38;
+  border-radius: 40px;
+  padding: 20px;
+  min-height: 650px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fefae0;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 15px;
+  background-color: #bc6c25;
+  border-radius: 40px;
+  text-decoration: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5 rem 1 rem;
+  color: #fefae0;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #bc6c25;
+}
+
 @media only screen and (max-width: 990px) {
   .our-team {
     margin-bottom: 30px;
@@ -714,11 +743,11 @@ td {
     flex-direction: column;
   }
   .pagination {
-      margin-top: 5%;
+    margin-top: 5%;
   }
 }
 
-.pie-pagina{
+.pie-pagina {
   margin-top: 6rem;
   margin-left: 2rem;
 }

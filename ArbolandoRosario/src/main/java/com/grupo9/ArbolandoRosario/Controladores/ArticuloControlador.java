@@ -32,7 +32,7 @@ public class ArticuloControlador {
 
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping("/crear-articulo")
-    public String crear_articulo(Articulo articulo) {
+    public String crear_articulo(Articulo articulo, Model model) {
         usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
         return "Crear-articulo";
     }
