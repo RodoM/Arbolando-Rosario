@@ -27,8 +27,7 @@
   </head>
   <body>
     <!-- Navbar template -->
-<<<<<<< HEAD
-    <nav th:replace="/plantillas/navbar :: navbar"></nav>
+  <nav th:replace="/plantillas/navbar :: navbar(avatar = ${avatar})"></nav>
     <audio controls>
       <source src="Thunderbird.mp3" type="audio/mp3">
       <source src="Thunderbird.ogg" type="audio/ogg">
@@ -43,10 +42,6 @@
         <i class="fa fa-pause-cicrle-o"></i>
       </button>
     </div>
-  
-=======
-    <nav th:replace="/plantillas/navbar :: navbar(avatar = ${avatar})"></nav>
->>>>>>> b4ff61c9741a7f438bcdbf1af2340f6423083ac4
     <!-- Alertas de inicio/salida de sesión -->
     <div th:if="${success != null}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
       <strong>Felicidades! </strong>
