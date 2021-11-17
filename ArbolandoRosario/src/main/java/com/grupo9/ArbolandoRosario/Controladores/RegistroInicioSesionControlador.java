@@ -17,6 +17,7 @@ public class RegistroInicioSesionControlador {
 
     @GetMapping("/login")
     public String login(Model model, Usuario usuario, @RequestParam(required = false) String error) {
+        usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
         if (error != null){
             model.addAttribute("error", "El usuario ingresado o la contraseña son incorrectos");
         }
@@ -24,6 +25,7 @@ public class RegistroInicioSesionControlador {
     }
     @GetMapping("/registro")
     public String registro(Model model, Usuario usuario) {
+        usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
         return "Registro";
     }
     @PostMapping("/registro")

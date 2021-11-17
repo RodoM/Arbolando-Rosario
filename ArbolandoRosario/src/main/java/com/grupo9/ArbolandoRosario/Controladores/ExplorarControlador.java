@@ -13,13 +13,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 import com.grupo9.ArbolandoRosario.Servicios.ArticuloServicio;
+import com.grupo9.ArbolandoRosario.Servicios.UsuarioServicio;
 import org.springframework.data.domain.Page;
+
+
 @Controller
 public class ExplorarControlador {
     @Autowired
     private ArticuloServicio articuloServicio;
+    @Autowired
+    private UsuarioServicio usuarioServicio;
     @GetMapping("/explorar")
     public String inicio(@RequestParam Map<String, Object> params, Model model){
+        usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
         int page = params.get("page") !=null ? Integer.valueOf(params.get("page").toString())-1 : 0;
         PageRequest pageRequest = PageRequest.of(page, 5);
         Page<Articulo> pageArticulo = articuloServicio.listarPaginas(pageRequest);

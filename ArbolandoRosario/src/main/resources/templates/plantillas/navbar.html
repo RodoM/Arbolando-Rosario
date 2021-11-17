@@ -37,7 +37,7 @@
             </li>
             <li sec:authorize="isAuthenticated()" class="nav-item">
               <div class="dropdown">
-                <img src="/img/profilepicture.png" class="dropdown-toggle profile-pic" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" alt="">
+                <img th:src="${avatar}" class="dropdown-toggle profile-pic" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" alt="">
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                   <!-- idea: que aca se muestre el nombre de usuario y lo separe de los botones con un <hr> -->
                   <li><a class="dropdown-item" th:href="@{/perfil}">Perfil</a></li>

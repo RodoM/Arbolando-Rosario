@@ -26,7 +26,7 @@
   </head>
   <body>
     <!-- Navbar template -->
-    <nav th:replace="/plantillas/navbar :: navbar"></nav>
+    <nav th:replace="/plantillas/navbar :: navbar(avatar = ${avatar})"></nav>
     <!-- Alertas de inicio/salida de sesión -->
     <div th:if="${success != null}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
       <strong>Felicidades! </strong>
