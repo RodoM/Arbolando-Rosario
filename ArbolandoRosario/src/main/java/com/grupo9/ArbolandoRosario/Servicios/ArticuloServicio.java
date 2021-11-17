@@ -10,7 +10,6 @@ import com.grupo9.ArbolandoRosario.Entidades.Usuario;
 import com.grupo9.ArbolandoRosario.Errores.ErrorServicio;
 import com.grupo9.ArbolandoRosario.Repositorio.ArbolDAO;
 import java.util.List;
-import com.grupo9.ArbolandoRosario.Servicios.UsuarioServicio;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
