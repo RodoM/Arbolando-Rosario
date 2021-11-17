@@ -1,6 +1,4 @@
 package com.grupo9.ArbolandoRosario.Controladores;
-
-import com.grupo9.ArbolandoRosario.Entidades.Usuario;
 import com.grupo9.ArbolandoRosario.Servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,6 +17,7 @@ public class PerfilControlador {
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping("/perfil")
     public String perfil(Model model) {
+        usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("usuario", usuarioServicio.encontrarUsuarioPorMail(auth.getName()));
         return "Perfil";

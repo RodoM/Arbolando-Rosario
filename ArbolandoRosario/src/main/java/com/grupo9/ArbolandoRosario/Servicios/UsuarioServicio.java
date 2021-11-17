@@ -17,6 +17,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.ui.Model;
 
 @Service
 public class UsuarioServicio implements UserDetailsService {
@@ -48,7 +51,42 @@ public class UsuarioServicio implements UserDetailsService {
         usuario.setContrasenha(encoder.encode(usuario.getContrasenha()));
         usuario.setAlta(true);
         usuario.setRol(Rol.USER);
+        usuario.setAvatar(elegirAvatarRandom());
         usuarioDao.save(usuario);
+    }
+
+    public String elegirAvatarRandom(){
+        int cantAvatares = 12;
+        int valorEntero = (int) Math.random()*(cantAvatares-1+1)+1;
+        String valorAGuardar = "profile-"+valorEntero+".png";
+        return valorAGuardar;
+    }
+
+    public void ValidacionesAvatarYAgregarAlModelo(Model model){
+        String email;
+        try{
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            email = authentication.getName();
+        }catch(Exception ex){
+            email = null;
+        }
+        Usuario user;
+        if(email!=null){
+            user = encontrarUsuarioPorMail(email);
+        }else{
+            user = null;
+        }
+        String porDefault = "/img/profilepicture.png";
+        if(user == null){
+            model.addAttribute("avatar", porDefault);
+        }else{
+            if(user.getAvatar() == null){
+                model.addAttribute("avatar", porDefault);
+            }else{
+                String avatarAAgregar = "/img/profile/"+user.getAvatar();
+                model.addAttribute("avatar", avatarAAgregar);
+            }
+        }
     }
 
     @Transactional
