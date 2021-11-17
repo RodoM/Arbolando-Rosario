@@ -532,6 +532,13 @@ th, td {
     grid-column: 1;
 }
 
+.pie-pagina {
+    font-family: 'Halant', serif;
+    margin-top: 100px;
+    margin-left: 30px;
+}
+
+
 @media only screen and (max-width: 990px) {
     .our-team{ margin-bottom: 30px; }
 }
