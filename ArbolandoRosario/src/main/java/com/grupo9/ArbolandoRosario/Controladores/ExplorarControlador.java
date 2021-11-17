@@ -21,7 +21,7 @@ public class ExplorarControlador {
     @GetMapping("/explorar")
     public String inicio(@RequestParam Map<String, Object> params, Model model){
         int page = params.get("page") !=null ? Integer.valueOf(params.get("page").toString())-1 : 0;
-        PageRequest pageRequest = PageRequest.of(page, 5);
+        PageRequest pageRequest = PageRequest.of(page, 8);
         Page<Articulo> pageArticulo = articuloServicio.listarPaginas(pageRequest);
         int totalPages = pageArticulo.getTotalPages();
         if(totalPages>0){
