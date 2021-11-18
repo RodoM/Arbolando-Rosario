@@ -27,7 +27,7 @@
       <div class="container">
         <div class="contenido-articulo">
           <h1 class="nombre-perfil" th:text="${articulo.arbol.nombre}"></h1>
-          <img class="img-articulo" th:src="@{articulo.url_imagen}" alt="" />
+          <img class="img-articulo" th:src="${articulo.url_imagen}" alt="" />
           <div class="info-articulo">
             <p><span class="atributos">Nombre: </span><span th:text="${articulo.arbol.nombre}"></span></p>
             <p><span class="atributos">Nombre científico: </span><span th:text="${articulo.arbol.nombreCientifico}"></span></p>

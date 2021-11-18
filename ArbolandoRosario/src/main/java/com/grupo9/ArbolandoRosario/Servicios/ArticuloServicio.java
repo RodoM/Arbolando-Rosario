@@ -92,8 +92,8 @@ public class ArticuloServicio {
         if (encontrarArbolRepetidoNombreCientifico(arbol.getNombreCientifico())) {
             throw new ErrorServicio("Ya existe un arbol registrado bajo ese nombre cientifico");
         }
-        if (arbol.getInformacion().length() > 700) {
-            throw new ErrorServicio("La informacion no puede sobrepasar los 700 caracteres");
+        if (arbol.getInformacion().length() > 3000) {
+            throw new ErrorServicio("La informacion no puede sobrepasar los 3000 caracteres");
         }
     }
 }
