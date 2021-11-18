@@ -778,7 +778,7 @@ td {
     flex-direction: column;
   }
   .nombre-perfil, .nombre-articulo {
-    font-size: 36px;
+    font-size: 30px;
   }
   .pagination {
     margin-top: 5%;

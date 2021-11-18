@@ -57,7 +57,7 @@ public class UsuarioServicio implements UserDetailsService {
     }
 
     public String elegirAvatarRandom() {
-        int cantAvatares = 5;
+        int cantAvatares = 8;
         int valorEntero = (int) (Math.random() * cantAvatares + 1);
         String valorAGuardar = "profile-" + valorEntero + ".png";
         System.out.println(valorEntero);
