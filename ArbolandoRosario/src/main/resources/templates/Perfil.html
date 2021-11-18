@@ -26,7 +26,7 @@
     <div class="d-flex align-items-center min-vh-100">
       <div class="container">
         <div class="contenido-perfil">
-          <img class="img-perfil" src="../static/img/integrantes/Rodolfo.jpg" alt="" />
+          <img class="img-perfil" th:src="${avatar}" alt="" />
           <h1 class="nombre-perfil" th:text="${usuario.mail}">Rodolfo Meroi</h1>
           <div class="descripcion-perfil">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
