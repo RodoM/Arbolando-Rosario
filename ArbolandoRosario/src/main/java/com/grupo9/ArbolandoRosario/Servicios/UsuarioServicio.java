@@ -114,7 +114,8 @@ public class UsuarioServicio implements UserDetailsService {
     public void cambiarContraseña(Usuario usuario, String password, String newPassword) throws ErrorServicio {
 
         if (encoder.matches(password, usuario.getContrasenha())) {
-            usuario.setContrasenha(newPassword);
+            usuario.setContrasenha(encoder.encode(newPassword));
+            usuarioDao.save(usuario);
         } else {
             throw new ErrorServicio("La contraseña ingresada es incorrecta");
         }
