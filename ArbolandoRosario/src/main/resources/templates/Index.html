@@ -1,281 +1,251 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="/img/Oak Tree.png" />
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <!-- CSS -->
-  <link rel="stylesheet" href="/css/Styles.css" />
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap"
-    rel="stylesheet" />
-  <!-- Awesome Icons -->
-  <script src="https://kit.fontawesome.com/df20a26306.js" crossorigin="anonymous"></script>
-  <title>Arbolando Rosario</title>
-
-</head>
-
-<body>
-  <!-- Navbar template -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/img/Oak Tree.png" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/Styles.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap" rel="stylesheet" />
+    <!-- Awesome Icons -->
+    <script src="https://kit.fontawesome.com/df20a26306.js" crossorigin="anonymous"></script>
+    <title>Arbolando Rosario</title>
+    
+  </head>
+  <body>
+    <!-- Navbar template -->
   <nav th:replace="/plantillas/navbar :: navbar(avatar = ${avatar})"></nav>
-
-
-  <!-- Alertas de inicio/salida de sesión -->
-  <div th:if="${success != null}" class="alert alert-primary alert-dismissible fade show ms-auto float-end"
-    role="alert">
-    <strong>Felicidades! </strong>
-    <p>Has creado el artículo con éxito!</p>
-    <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  <div th:if="${param.logout}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
-    <strong>Felicidades! </strong>
-    <p>Has finalizado sesión con éxito!</p>
-    <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  <div th:if="${param.login}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
-    <strong>Felicidades! </strong>
-    <p>Has iniciado sesión con éxito!</p>
-    <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  <!-- Seccion 1 del index (titulo y boton) -->
-  <section class="index" id="seccion-uno">
+    <audio controls>
+      <source src="Thunderbird.mp3" type="audio/mp3">
+      <source src="Thunderbird.ogg" type="audio/ogg">
+      <source src="Thunderbird.wav" type="audio/wav">
+          Tu navegador no soporta audio HTML5.
+    </audio>
+    
     <div class="bg-music">
-      <audio id="mymusic">
-        <source src="./Thunderbird.mp3" type="audio/mp3">
-      </audio>
-
+      <audio sr="" loop=""></audio>
       <button class="btn">
         <i class="fa fa-play-circle-o"></i>
-        <i class="fa fa-pause-circle-o"></i>
+        <i class="fa fa-pause-cicrle-o"></i>
       </button>
-
-
     </div>
-    <h1 class="display-1 wow animate__animated animate__fadeInLeft">Arbolando Rosario</h1>
-    <a th:href="@{/explorar}"><button type="button" class="btn btn-primary pos">Explorar</button></a>
-    <a href="#seccion-dos">
-      <div class="arrow"></div>
-    </a>
-    <img src="/img/Vector.svg" alt="" class="img-pos1" />
-  </section>
-  <!-- Seccion 2 del index (Info. del proyecto) -->
-  <section class="index index-info" id="seccion-dos">
-    <div class="text-bg">
-      <h1 class="display-1 pos wow animate__animated animate__fadeInLeft" data-aos="fade-left">Info del proyecto</h1>
-      <div class="desc wow animate__animated animate__fadeInRight">
-        <br>
-        <br>
-        La ciudad de Rosario tiene una gran cantidad de árboles (420.000 según el último censo de 2019), y somos
-        conocidos por ser una "ciudad
-        verde". Pero gran a pesar del interés creciente de la población en este tema y otros relacionados, a veces la
-        información no es de fácil
-        acceso o se encuentra dispersa.
-        <br>
-        Arbolando Rosario surge de la idea de crear un "portal verde online", que le permita al usuario conocer la
-        información disponible sobre los
-        árboles que hay en la ciudad. La persona puede acceder libremente sin ser usuario del sitio, pero al registrarse
-        puede tener funciones
-        extras y realizar contribuciones al proyecto.
-        <br>
-        Somos un equipo y una web en crecimiento, por lo que las sugerencias son siempre bienvenidas. ¡Esperamos que
-        disfruten nuestro portal!
-        <br>
-        <h3><b>Tree9</b></h3>
-      </div>
+    <!-- Alertas de inicio/salida de sesión -->
+    <div th:if="${success != null}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
+      <strong>Felicidades! </strong>
+      <p>Has creado el artículo con éxito!</p>
+      <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <img src="/img/Vector2.svg" alt="" class="img-pos2" />
-    <a href="#seccion-tres">
-      <div class="arrow pos2"></div>
-    </a>
-    <img src="/img/Vector.svg" alt="" class="img-pos3" />
-  </section>
-  <!-- Seccion 3 del index (Integrantes) -->
-  <section class="index" id="seccion-tres">
-    <h1 class="display-1 pos2 wow animate__animated animate__fadeInLeft" data-aos="fade-left">Equipo</h1>
-    <div class="vertical-center">
-      <div class="container">
-        <div class="row wow animate__animated animate__fadeInRight">
-          <div class="col-md-3 col-sm-6">
-            <div class="our-team">
-              <div class="pic">
-                <img src="/img/integrantes/Angel.jpg" />
-              </div>
-              <h3 class="title">Angel Cilfone</h3>
-              <span class="post">Back-team</span>
-              <ul class="social">
-                <li>
-                  <a href="https://www.instagram.com/cilfo_/" target="_blank"><i class="fab fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6">
-            <div class="our-team">
-              <div class="pic">
-                <img src="/img/integrantes/Camila.jpg" />
-              </div>
-              <h3 class="title">Camila Spitale</h3>
-              <span class="post">Back-team</span>
-              <ul class="social">
-                <li>
-                  <a href="https://www.instagram.com/camilaspitale/" target="_blank"><i
-                      class="fab fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6">
-            <div class="our-team">
-              <div class="pic">
-                <img src="/img/integrantes/Damian.jpg" />
-              </div>
-              <h3 class="title">Damian Nuñez</h3>
-              <span class="post">Back-team</span>
-              <ul class="social">
-                <li>
-                  <a href="https://www.instagram.com/damian.nz.9/" target="_blank"><i class="fab fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6">
-            <div class="our-team">
-              <div class="pic">
-                <img src="/img/integrantes/Facundo.jpg" />
-              </div>
-              <h3 class="title">Facundo Villarruel</h3>
-              <span class="post">Back-team</span>
-              <ul class="social">
-                <li>
-                  <a href="https://www.instagram.com/facu.villarruel/" target="_blank"><i
-                      class="fab fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <br />
-        <div class="row wow animate__animated animate__fadeInRight">
-          <div class="col-md-3 col-sm-6">
-            <div class="our-team">
-              <div class="pic">
-                <img src="/img/integrantes/Julian.jpg" />
-              </div>
-              <h3 class="title">Julian Di Simone</h3>
-              <span class="post">Front-team</span>
-              <ul class="social">
-                <li>
-                  <a href="https://www.instagram.com/barshow13/" target="_blank"><i class="fab fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6">
-            <div class="our-team">
-              <div class="pic">
-                <img src="/img/integrantes/Lucas.jpg" />
-              </div>
-              <h3 class="title">Lucas Ramirez</h3>
-              <span class="post">Front-team</span>
-              <ul class="social">
-                <li>
-                  <a href="https://www.instagram.com/lucasramirez_/" target="_blank"><i
-                      class="fab fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6">
-            <div class="our-team">
-              <div class="pic">
-                <img src="/img/integrantes/Rodolfo.jpg" />
-              </div>
-              <h3 class="title">Rodolfo Meroi</h3>
-              <span class="post">Front-team</span>
-              <ul class="social">
-                <li>
-                  <a href="https://www.instagram.com/rodo.meroi/" target="_blank"><i class="fab fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6">
-            <div class="our-team">
-              <div class="pic">
-                <img src="/img/integrantes/Victoria.jpg" />
-              </div>
-              <h3 class="title">Victoria Velazquez</h3>
-              <span class="post">Front-team</span>
-              <ul class="social">
-                <li>
-                  <a href="https://www.instagram.com/victoria.bunn/" target="_blank"><i
-                      class="fab fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <div th:if="${param.logout}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
+      <strong>Felicidades! </strong>
+      <p>Has finalizado sesión con éxito!</p>
+      <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div th:if="${param.login}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
+      <strong>Felicidades! </strong>
+      <p>Has iniciado sesión con éxito!</p>
+      <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <!-- Seccion 1 del index (titulo y boton) -->
+    <section class="index" id="seccion-uno">
+      <h1 class="display-1 wow animate__animated animate__fadeInLeft">Arbolando Rosario</h1>
+      <a th:href="@{/explorar}"><button type="button" class="btn btn-primary pos">Explorar</button></a>
+      <a href="#seccion-dos"><div class="arrow"></div></a>
+      <img src="/img/Vector.svg" alt="" class="img-pos1" />
+    </section>
+    <!-- Seccion 2 del index (Info. del proyecto) -->
+    <section class="index index-info" id="seccion-dos">
+      <div class="text-bg">
+        <h1 class="display-1 pos wow animate__animated animate__fadeInLeft" data-aos="fade-left">Info del proyecto</h1>
+        <div class="desc wow animate__animated animate__fadeInRight">
+          <br>
+          <br>
+          La ciudad de Rosario tiene una gran cantidad de árboles (420.000 según el último censo de 2019), y somos conocidos por ser una "ciudad
+          verde". Pero gran a pesar del interés creciente de la población en este tema y otros relacionados, a veces la información no es de fácil 
+          acceso o se encuentra dispersa.
+          <br>
+          Arbolando Rosario surge de la idea de crear un "portal verde online", que le permita al usuario conocer la información disponible sobre los
+          árboles que hay en la ciudad. La persona puede acceder libremente sin ser usuario del sitio, pero al registrarse puede tener funciones
+          extras y realizar contribuciones al proyecto.
+          <br>
+          Somos un equipo y una web en crecimiento, por lo que las sugerencias son siempre bienvenidas. ¡Esperamos que disfruten nuestro portal!
+          <br>
+          <h3><b>Tree9</b></h3>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Footer del index (Más info)-->
-  <footer class="footer pie-pagina" id="pie-pagina">
-    <div class="colum3">
-      <h1>Contacto</h1>
-      <div class="row2"></div>
-      <img src="">
-      <label>angelcilfone@hotmail.com</label>
-      <div class="container-footer">
-        <div class="copyright">
-          <b>© 2021 Todos los Derechos Reservados|♧Tree9</b>
-        </div>
-        <div class="information">
-          <a href="">♧Acerca de Arbolando Rosario</a> | <a href="Privacidad.html">Política de Privacidad</a>
+      <img src="/img/Vector2.svg" alt="" class="img-pos2" />
+      <a href="#seccion-tres"><div class="arrow pos2"></div></a>
+      <img src="/img/Vector.svg" alt="" class="img-pos3" />
+    </section>
+    <!-- Seccion 3 del index (Integrantes) -->
+    <section class="index" id="seccion-tres">
+      <h1 class="display-1 pos2 wow animate__animated animate__fadeInLeft" data-aos="fade-left">Equipo</h1>
+      <div class="vertical-center">
+        <div class="container">
+          <div class="row wow animate__animated animate__fadeInRight">
+            <div class="col-md-3 col-sm-6">
+              <div class="our-team">
+                <div class="pic">
+                  <img src="/img/integrantes/Angel.jpg" />
+                </div>
+                <h3 class="title">Angel Cilfone</h3>
+                <span class="post">Back-team</span>
+                <ul class="social">
+                  <li>
+                    <a href="https://www.instagram.com/cilfo_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <div class="our-team">
+                <div class="pic">
+                  <img src="/img/integrantes/Camila.jpg" />
+                </div>
+                <h3 class="title">Camila Spitale</h3>
+                <span class="post">Back-team</span>
+                <ul class="social">
+                  <li>
+                    <a href="https://www.instagram.com/camilaspitale/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <div class="our-team">
+                <div class="pic">
+                  <img src="/img/integrantes/Damian.jpg" />
+                </div>
+                <h3 class="title">Damian Nuñez</h3>
+                <span class="post">Back-team</span>
+                <ul class="social">
+                  <li>
+                    <a href="https://www.instagram.com/damian.nz.9/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <div class="our-team">
+                <div class="pic">
+                  <img src="/img/integrantes/Facundo.jpg" />
+                </div>
+                <h3 class="title">Facundo Villarruel</h3>
+                <span class="post">Back-team</span>
+                <ul class="social">
+                  <li>
+                    <a href="https://www.instagram.com/facu.villarruel/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="row wow animate__animated animate__fadeInRight">
+            <div class="col-md-3 col-sm-6">
+              <div class="our-team">
+                <div class="pic">
+                  <img src="/img/integrantes/Julian.jpg" />
+                </div>
+                <h3 class="title">Julian Di Simone</h3>
+                <span class="post">Front-team</span>
+                <ul class="social">
+                  <li>
+                    <a href="https://www.instagram.com/barshow13/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <div class="our-team">
+                <div class="pic">
+                  <img src="/img/integrantes/Lucas.jpg" />
+                </div>
+                <h3 class="title">Lucas Ramirez</h3>
+                <span class="post">Front-team</span>
+                <ul class="social">
+                  <li>
+                    <a href="https://www.instagram.com/lucasramirez_/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <div class="our-team">
+                <div class="pic">
+                  <img src="/img/integrantes/Rodolfo.jpg" />
+                </div>
+                <h3 class="title">Rodolfo Meroi</h3>
+                <span class="post">Front-team</span>
+                <ul class="social">
+                  <li>
+                    <a href="https://www.instagram.com/rodo.meroi/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+              <div class="our-team">
+                <div class="pic">
+                  <img src="/img/integrantes/Victoria.jpg" />
+                </div>
+                <h3 class="title">Victoria Velazquez</h3>
+                <span class="post">Front-team</span>
+                <ul class="social">
+                  <li>
+                    <a href="https://www.instagram.com/victoria.bunn/" target="_blank"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-  </footer>
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
-  <!-- Wow JS -->
-  <script src="/js/wow.min.js"></script>
-  <script>
-    new WOW().init();
-  </script>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-
-      $(".btn .fa-play-circle-o").on('click', function () {
-        $(this).hide();
-        $(".fa-pause-circle-o").fadeIn();
-        $("#mymusic")[0].play();
-      });
-
-      $(".btn .fa-pause-circle-o").on('click', function () {
-        $(this).hide();
-        $(".fa-play-circle-o").fadeIn();
-        $("#mymusic")[0].pause();
-      });
-
-    });
-  </script>
-</body>
-
+    </section>
+    <!-- Footer del index (Más info)-->
+    <footer class="footer pie-pagina" id="pie-pagina">
+      <div class="colum3">
+        <h1>Contacto</h1>
+        <div class="row2"></div>
+        <img src="">
+        <label>angelcilfone@hotmail.com</label>
+        <div class="container-footer">
+          <div class="copyright">
+            <b>© 2021 Todos los Derechos Reservados|♧Tree9</b>
+          </div>
+          <div class="information">
+            <a href="">♧Acerca de Arbolando Rosario</a> | <a href="Privacidad.html">Política de Privacidad</a>
+          </div>
+        </div>
+      </footer>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Wow JS -->
+    <script src="/js/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+  </body>
 </html>
