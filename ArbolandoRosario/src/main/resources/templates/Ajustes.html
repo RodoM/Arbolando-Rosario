@@ -13,44 +13,107 @@
       crossorigin="anonymous"
     />
     <!-- CSS -->
-    <link rel="stylesheet" href="../static/css/Styles.css" />
+    <link rel="stylesheet" href="/css/Styles.css" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Halant:wght@700&family=Nunito+Sans:wght@300;700&display=swap" rel="stylesheet" />
     <!-- Awesome Icons -->
     <script src="https://kit.fontawesome.com/df20a26306.js" crossorigin="anonymous"></script>
-    <title>Inicio-Sesion</title>
+    <title>Ajustes</title>
   </head>
   <body>
     <!-- Navbar template -->
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
-    <!-- Formulario inicio de sesión -->
+    <!-- Tab de ajustes -->
     <div class="d-flex align-items-center min-vh-100">
       <div class="container">
         <div class="contenedor-ajustes">
           <ul class="nav nav-pills nav-justified">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#1">Cambiar contraseña</a>
+              <a data-tab-target="#mod-contraseña" class="nav-link active" aria-current="page" href="#">Modificar contraseña</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#2">Cambiar mail</a>
+              <a data-tab-target="#mod-mail" class="nav-link" href="#">Modificar mail</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#3">Modificar perfil</a>
+              <a data-tab-target="#mod-perfil" class="nav-link" href="#">Modificar perfil</a>
             </li>
           </ul>
 
-          <div></div>
+          <div id="mod-contraseña" data-tab-content class="active">
+            <h4 class="title text-center mt-4">Modificar contraseña</h4>
+            <div class="form-input">
+              <input type="password" th:name="contrasenha" th:field="*{contrasenha}" id="contrasenha" placeholder="Antigua contraseña" required />
+            </div>
+            <div class="form-input">
+              <input type="password" th:name="contrasenha" th:field="*{contrasenha}" id="contrasenha" placeholder="Nueva contraseña" required />
+            </div>
+            <div class="mb-3 text-center">
+              <button type="submit" class="btn btn-block text-uppercase">Confirmar</button>
+            </div>
+          </div>
+
+          <div id="mod-mail" data-tab-content>
+            <h4 class="title text-center mt-4">Modificar mail</h4>
+            <div class="form-input">
+              <input type="email" th:name="mail" th:field="*{mail}" id="mail" placeholder="Antiguo mail" tabindex="10" required />
+            </div>
+            <div class="form-input">
+              <input type="email" th:name="mail" th:field="*{mail}" id="mail" placeholder="Nuevo mail" tabindex="10" required />
+            </div>
+            <div class="mb-3 text-center">
+              <button type="submit" class="btn btn-block text-uppercase">Confirmar</button>
+            </div>
+          </div>
+
+          <div id="mod-perfil" data-tab-content>
+            <h4 class="title text-center mt-4">Modificar perfil</h4>
+            <div class="form-input">
+              <input type="text" name="nombreUsuario" id="nombreUsuario" th:field="*{nombre}" placeholder="Nuevo nombre de usuario" />
+            </div>
+            <div class="form-input">
+                <input type="text" name="edadUsuario" id="edadUsuario" th:field="*{edad}" placeholder="Nueva edad de usuario" />
+            </div>
+            <div class="form-input">
+                <input type="text" name="zonaUsuario" id="zonaUsuario" th:field="*{zona}" placeholder="Nueva zona de usuario" />
+            </div>
+            <div class="form-input">
+                <input type="text" name="descUsuario" id="descUsuario" th:field="*{descripcion}" placeholder="Nueva descripción de usuario" />
+            </div>
+            <div class="form-input">
+                <input type="text" name="avatarUsuario" id="avatarUsuario" th:field="*{avatar}" placeholder="Nuevo avatar de usuario (url)" />
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-block text-uppercase">Confirmar</button>
+              </div>
+          </div>
         </div>
       </div>
     </div>
-
     <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const tabs = document.querySelectorAll("[data-tab-target]");
+      const tabContents = document.querySelectorAll("[data-tab-content]");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const target = document.querySelector(tab.dataset.tabTarget);
+          tabContents.forEach((tabContent) => {
+            tabContent.classList.remove("active");
+          });
+          tabs.forEach((tab) => {
+            tab.classList.remove("active");
+          });
+          tab.classList.add("active");
+          target.classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>
