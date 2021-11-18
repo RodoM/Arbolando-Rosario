@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.grupo9.ArbolandoRosario.Repositorio.ArticuloDAO;
 import org.springframework.transaction.annotation.Transactional;
+
+import javassist.bytecode.stackmap.BasicBlock.Catch;
+
 import com.grupo9.ArbolandoRosario.Entidades.Articulo;
 import com.grupo9.ArbolandoRosario.Entidades.Usuario;
 import com.grupo9.ArbolandoRosario.Errores.ErrorServicio;
@@ -53,6 +56,13 @@ public class ArticuloServicio {
         articuloDAO.save(articulo);
     }
 
+    public List<Articulo> buscarPorUsuario(Usuario user){
+        try{
+            return (List<Articulo>)articuloDAO.findByUsuarioMail(user.getMail());
+        }catch(Exception ex){
+            return null;
+        }
+    }
     @Transactional(readOnly = true)
     public Articulo encontrarArticuloPorId(Long id) {
         return articuloDAO.findById(id).orElse(null);
@@ -92,8 +102,8 @@ public class ArticuloServicio {
         if (encontrarArbolRepetidoNombreCientifico(arbol.getNombreCientifico())) {
             throw new ErrorServicio("Ya existe un arbol registrado bajo ese nombre cientifico");
         }
-        if (arbol.getInformacion().length() > 700) {
-            throw new ErrorServicio("La informacion no puede sobrepasar los 700 caracteres");
+        if (arbol.getInformacion().length() > 3000) {
+            throw new ErrorServicio("La informacion no puede sobrepasar los 3000 caracteres");
         }
     }
 }

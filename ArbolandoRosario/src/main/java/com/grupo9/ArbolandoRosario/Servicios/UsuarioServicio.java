@@ -24,6 +24,8 @@ import org.springframework.ui.Model;
 @Service
 public class UsuarioServicio implements UserDetailsService {
 
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
     @Autowired
     private UsuarioDAO usuarioDao;
 
@@ -34,7 +36,6 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Transactional
     public void guardar(Usuario usuario) throws ErrorServicio {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
         if (usuario.getMail().isEmpty() || usuario.getMail() == null) {
             throw new ErrorServicio("El correo no puede estar vacio");
@@ -55,35 +56,35 @@ public class UsuarioServicio implements UserDetailsService {
         usuarioDao.save(usuario);
     }
 
-    public String elegirAvatarRandom(){
+    public String elegirAvatarRandom() {
         int cantAvatares = 12;
-        int valorEntero = (int) Math.random()*(cantAvatares-1+1)+1;
-        String valorAGuardar = "profile-"+valorEntero+".png";
+        int valorEntero = (int) Math.random() * (cantAvatares - 1 + 1) + 1;
+        String valorAGuardar = "profile-" + valorEntero + ".png";
         return valorAGuardar;
     }
 
-    public void ValidacionesAvatarYAgregarAlModelo(Model model){
+    public void ValidacionesAvatarYAgregarAlModelo(Model model) {
         String email;
-        try{
+        try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             email = authentication.getName();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             email = null;
         }
         Usuario user;
-        if(email!=null){
+        if (email != null) {
             user = encontrarUsuarioPorMail(email);
-        }else{
+        } else {
             user = null;
         }
         String porDefault = "/img/profilepicture.png";
-        if(user == null){
+        if (user == null) {
             model.addAttribute("avatar", porDefault);
-        }else{
-            if(user.getAvatar() == null){
+        } else {
+            if (user.getAvatar() == null) {
                 model.addAttribute("avatar", porDefault);
-            }else{
-                String avatarAAgregar = "/img/profile/"+user.getAvatar();
+            } else {
+                String avatarAAgregar = "/img/profile/" + user.getAvatar();
                 model.addAttribute("avatar", avatarAAgregar);
             }
         }
@@ -106,6 +107,17 @@ public class UsuarioServicio implements UserDetailsService {
 
     public boolean encontrarMailYaRegistrado(String mail) {
         return usuarioDao.findByMailIgnoreCase(mail) != null;
+    }
+
+    @Transactional
+    public void cambiarContraseña(Usuario usuario, String password, String newPassword) throws ErrorServicio {
+
+        if (encoder.matches(password, usuario.getContrasenha())) {
+            usuario.setContrasenha(encoder.encode(newPassword));
+            usuarioDao.save(usuario);
+        } else {
+            throw new ErrorServicio("La contraseña ingresada es incorrecta");
+        }
     }
 
     @Override   //este metodo lo implementa la interfaz, y se llama cuando un usuario se quiere loguear (como es un override se tiene q llamar asi, aunq nosotros autentiquemos por mail

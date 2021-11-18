@@ -763,7 +763,10 @@ td {
     top: 220%;
   }
   .display-1.pos2 {
-    top: 230%;
+    top: 270%;
+  }
+  .desc {
+    top: 130%;
   }
   .contenido-perfil {
     display: flex;
