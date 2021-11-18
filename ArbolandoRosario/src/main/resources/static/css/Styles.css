@@ -202,7 +202,7 @@ h5 {
   font-weight: 400;
   line-height: 1.5;
   color: #fefae0;
-  background-color: #606c38;
+  background-color: #606c38 !important;
   background-clip: padding-box;
   border: 1px solid #fefae0;
   -webkit-appearance: none;
@@ -251,7 +251,7 @@ input[type="file"]:focus,
   color: #454b69;
 }
 
-.form-box,
+.form-box button,
 .contenedor-ajustes button[type="submit"] {
   font-family: "Nunito Sans", sans-serif;
   margin-top: 10px;
@@ -267,7 +267,7 @@ input[type="file"]:focus,
   padding: 12px;
 }
 
-.form-box,
+.form-box button[type="submit"]:hover,
 .contenedor-ajustes button[type="submit"]:hover {
   background: #bc6c25;
 }
@@ -769,7 +769,7 @@ footer #pie_pagina {
   height: 300px;
 }
 
-.bg-music{
+/* .bg-music{
   position: absolute;
   top: 64%;
   left: 0;
@@ -786,4 +786,4 @@ footer #pie_pagina {
   margin: 0 auto;
   opacity: 0.4;
   transition: all linear .2s;
-  }
+  } */

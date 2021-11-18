@@ -28,20 +28,6 @@
   <body>
     <!-- Navbar template -->
   <nav th:replace="/plantillas/navbar :: navbar(avatar = ${avatar})"></nav>
-    <audio controls>
-      <source src="Thunderbird.mp3" type="audio/mp3">
-      <source src="Thunderbird.ogg" type="audio/ogg">
-      <source src="Thunderbird.wav" type="audio/wav">
-          Tu navegador no soporta audio HTML5.
-    </audio>
-    
-    <div class="bg-music">
-      <audio sr="" loop=""></audio>
-      <button class="btn">
-        <i class="fa fa-play-circle-o"></i>
-        <i class="fa fa-pause-cicrle-o"></i>
-      </button>
-    </div>
     <!-- Alertas de inicio/salida de sesión -->
     <div th:if="${success != null}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
       <strong>Felicidades! </strong>
