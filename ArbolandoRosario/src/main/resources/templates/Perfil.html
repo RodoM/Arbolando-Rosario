@@ -42,38 +42,14 @@
           </div>
           
           <div class="articulos-perfil">
-              <h1 class="nombre-perfil">Articulos del usuario (6):</h1>
-              <div class="contenedor-tabla">
+              <h1 class="nombre-perfil">Articulos del usuario (<span th:text="${cant}"></span>):</h1>
+              <h1 th:if="${articulos == null || articulos.size() == 0}">No hay articulos creados</h1>
+              <div th:if="${articulos != null || articulos.size() != 0}" class="contenedor-tabla">
                 <table class="table table-borderless">
-                  <tbody>
+                  <tbody th:each=" articulo, iterador : ${articulos}">
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Nombre del arbol</td>
-                      <td>Fecha de creacion:</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Nombre del arbol</td>
-                      <td>Fecha de creacion:</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Nombre del arbol</td>
-                      <td>Fecha de creacion:</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>Nombre del arbol</td>
-                      <td>Fecha de creacion:</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">5</th>
-                      <td>Nombre del arbol</td>
-                      <td>Fecha de creacion:</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">6</th>
-                      <td>Nombre del arbol</td>
+                      <th scope="row" th:text="${iterador.index}">1</th>
+                      <td th:text="${articulo.arbol.nombre}">Nombre del arbol</td>
                       <td>Fecha de creacion:</td>
                     </tr>
                   </tbody>
