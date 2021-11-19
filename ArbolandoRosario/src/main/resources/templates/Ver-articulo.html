@@ -23,10 +23,12 @@
   <body>
     <!-- Navbar template -->
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
+    <!-- Articulo -->
     <div class="d-flex align-items-center min-vh-100">
       <div class="container">
-        <form class="contenido-articulo">
-          <h1 class="nombre-perfil" th:text="${articulo.arbol.nombre}"></h1>
+
+        <div class="contenido-articulo">
+          <h1 class="nombre-articulo" th:text="${articulo.arbol.nombre}"></h1>
           <img class="img-articulo" th:src="${articulo.url_imagen}" alt="" />
           <div class="info-articulo">
             <p><span class="atributos">Nombre: </span><span th:text="${articulo.arbol.nombre}"></span></p>
