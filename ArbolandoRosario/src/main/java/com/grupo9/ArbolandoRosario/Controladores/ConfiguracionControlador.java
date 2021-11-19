@@ -45,7 +45,7 @@ public class ConfiguracionControlador {
         } catch (Exception e) {
             System.out.println("error");
         }
-        return "redirect:/";
+        return "redirect:/logout";
     }
 
 }

@@ -28,16 +28,12 @@
     <!-- Tab de ajustes -->
     <div class="d-flex align-items-center min-vh-100">
       <div class="container">
-
           
           <div th:if="${error}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
               <strong>Error</strong>
               <p th:text="${error}"></p>
               <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
           </div> 
-
-          
-          
           
         <div class="contenedor-ajustes">
           <ul class="nav nav-pills nav-justified">
@@ -70,9 +66,11 @@
             <div class="form-input">
               <input type="email" th:name="nuevoMail" placeholder="Nuevo mail" tabindex="10" required />
             </div>
+            <p><strong>Aviso:</strong> al confirmar el cambio de correo electronico se cerrara la sesion</p>
             <div class="mb-3 text-center">
               <button type="submit" class="btn btn-block text-uppercase">Confirmar</button>
             </div>
+            
           </form>
 
           <div id="mod-perfil" data-tab-content>
