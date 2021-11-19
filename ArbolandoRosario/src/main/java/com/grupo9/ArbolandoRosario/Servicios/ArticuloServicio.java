@@ -52,17 +52,17 @@ public class ArticuloServicio {
 
     @Transactional
     public void eliminar(Articulo articulo) {
-        articulo.setAlta(false);
-        articuloDAO.save(articulo);
+        articuloDAO.delete(articulo);
     }
 
-    public List<Articulo> buscarPorUsuario(Usuario user){
-        try{
-            return (List<Articulo>)articuloDAO.findByUsuarioMail(user.getMail());
-        }catch(Exception ex){
+    public List<Articulo> buscarPorUsuario(Usuario user) {
+        try {
+            return (List<Articulo>) articuloDAO.findByUsuarioMail(user.getMail());
+        } catch (Exception ex) {
             return null;
         }
     }
+
     @Transactional(readOnly = true)
     public Articulo encontrarArticuloPorId(Long id) {
         return articuloDAO.findById(id).orElse(null);

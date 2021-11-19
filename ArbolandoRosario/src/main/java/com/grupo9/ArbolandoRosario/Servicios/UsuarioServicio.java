@@ -120,6 +120,12 @@ public class UsuarioServicio implements UserDetailsService {
         }
     }
 
+    @Transactional
+    public void cambiarMail(Usuario usuario, String nuevoMail) {
+        usuario.setMail(nuevoMail);
+        usuarioDao.save(usuario);
+    }
+
     @Override   //este metodo lo implementa la interfaz, y se llama cuando un usuario se quiere loguear (como es un override se tiene q llamar asi, aunq nosotros autentiquemos por mail
     public UserDetails loadUserByUsername(String mail) throws UsernameNotFoundException {
 

@@ -65,18 +65,15 @@
             </div>
           </form>
 
-          <div id="mod-mail" data-tab-content>
+          <form th:action="@{/cambiar-mail}" id="mod-mail" data-tab-content>
             <h4 class="title text-center mt-4">Modificar mail</h4>
             <div class="form-input">
-              <input type="email" id="mail" placeholder="Antiguo mail" tabindex="10" required />
-            </div>
-            <div class="form-input">
-              <input type="email" id="mail" placeholder="Nuevo mail" tabindex="10" required />
+              <input type="email" th:name="nuevoMail" placeholder="Nuevo mail" tabindex="10" required />
             </div>
             <div class="mb-3 text-center">
               <button type="submit" class="btn btn-block text-uppercase">Confirmar</button>
             </div>
-          </div>
+          </form>
 
           <div id="mod-perfil" data-tab-content>
             <h4 class="title text-center mt-4">Modificar perfil</h4>

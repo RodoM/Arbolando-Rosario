@@ -24,6 +24,7 @@ public class ArticuloControlador {
     private ArticuloServicio articuloServicio;
     @Autowired
     private UsuarioServicio usuarioServicio;
+
     @GetMapping("/articulo")
     public String articulo(Model model) {
         usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
@@ -54,10 +55,17 @@ public class ArticuloControlador {
     @GetMapping("/mostrar")
     public String buscarArticulo(@RequestParam Map<String, Object> params, Model model, Articulo articulo) {
         usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
-        int idArticulo = params.get("id") !=null ? Integer.valueOf(params.get("id").toString()) : 0;
+        int idArticulo = params.get("id") != null ? Integer.valueOf(params.get("id").toString()) : 0;
         Long id = Long.valueOf(idArticulo);
         model.addAttribute("articulo", articuloServicio.encontrarArticuloPorId(id));
         return "Ver-articulo";
     }
 
+    @GetMapping("/eliminar-articulo")
+    public String eliminarArticulo(@RequestParam Map<String, Object> params, Articulo articulo) {
+        int idArticulo = params.get("id") != null ? Integer.valueOf(params.get("id").toString()) : 0;
+        Long id = Long.valueOf(idArticulo);
+        articuloServicio.eliminar(articuloServicio.encontrarArticuloPorId(id));
+        return "Explorar";
+    }
 }

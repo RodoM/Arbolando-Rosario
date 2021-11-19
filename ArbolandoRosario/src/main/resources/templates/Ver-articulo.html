@@ -25,7 +25,7 @@
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <div class="d-flex align-items-center min-vh-100">
       <div class="container">
-        <div class="contenido-articulo">
+        <form class="contenido-articulo">
           <h1 class="nombre-perfil" th:text="${articulo.arbol.nombre}"></h1>
           <img class="img-articulo" th:src="${articulo.url_imagen}" alt="" />
           <div class="info-articulo">
@@ -38,7 +38,7 @@
           <div class="descripcion-articulo" th:text="${articulo.arbol.informacion}"></div>
           <div sec:authorize="isAuthenticated()" class="text-center">
             <button type="button" class="btn btn-primary">Editar</button>
-            <button type="button" class="btn btn-primary">Borrar</button>
+            <button th:href="@{/eliminar-articulo}" type="button" class="btn btn-primary">Borrar</button>
           </div>
         </div>
       </div>

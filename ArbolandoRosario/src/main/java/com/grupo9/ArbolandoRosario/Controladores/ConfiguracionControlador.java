@@ -34,6 +34,18 @@ public class ConfiguracionControlador {
             model.addAttribute("error", e.getMessage());
             return "Ajustes";
         }
-
     }
+
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+    @GetMapping("/cambiar-mail")
+    public String cambiarMail(@RequestParam String nuevoMail) {
+        try {
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            usuarioServicio.cambiarMail(usuarioServicio.encontrarUsuarioPorMail(auth.getName()), nuevoMail);
+        } catch (Exception e) {
+            System.out.println("error");
+        }
+        return "redirect:/";
+    }
+
 }
