@@ -9,6 +9,7 @@ import lombok.Data;
 import java.io.Serializable;
 import javax.persistence.Table;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 
 @Data
 @Entity
@@ -20,6 +21,7 @@ public class Articulo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idArticulo;
+    @Column(length=4000)
     private String url_imagen;
     private boolean alta;
     @OneToOne(cascade = {CascadeType.ALL})

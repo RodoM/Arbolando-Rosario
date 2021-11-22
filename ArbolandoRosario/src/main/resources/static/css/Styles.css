@@ -84,7 +84,7 @@ section.index {
 }
 
 .display-1.pos {
-  top: 120%;
+  top: 115%;
 }
 
 .display-1.pos2 {
@@ -94,7 +94,7 @@ section.index {
 .desc {
   font-size: 1.25rem;
   position: absolute;
-  top: 140%;
+  top: 135%;
   left: 3%;
   right: 3%;
   z-index: 1000;
@@ -729,7 +729,7 @@ td {
   .img-pos3 {
     position: absolute;
     width: 100%;
-    top: 85%;
+    top: 75%;
     z-index: 999;
   }
 
@@ -760,9 +760,10 @@ td {
 @media screen and (max-width: 700px) {
   .arrow.pos2 {
     top: 220%;
+    z-index: 1001;
   }
   .display-1.pos2 {
-    top: 270%;
+    top: 230%;
   }
   .desc {
     top: 130%;
@@ -783,6 +784,9 @@ td {
   .pagination {
     margin-top: 5%;
   }
+  .footer-bg {
+    background-color: #606c38;
+  }
 }
 
 .pie-pagina {
@@ -800,7 +804,7 @@ footer #pie_pagina {
 @media screen and (max-width: 574px) {
 
   #seccion-tres {
-    height: 293vh;
+    height: 280vh;
   }
   
   .fila {
