@@ -9,6 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Data;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 
 @Data
 @Entity
@@ -27,9 +28,10 @@ public class Arbol implements Serializable {
 
     @OneToOne(cascade = {CascadeType.ALL})
     private TipoArbol tipoArbol;
-
+    
     private String origen;
     private String tamanho;
+    @Column(length=4000)
     private String informacion;
 
 }
