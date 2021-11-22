@@ -851,3 +851,19 @@ footer #pie_pagina {
   opacity: 0.4;
   transition: all linear .2s;
   } */
+
+  .seccion-total .h2 {
+    font-family: "Halant", serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    color: #dda15e;
+  }
+
+  .seccion-total .h4 {
+    font-family: "Halant", serif;
+    font-size: 1.00rem;
+    font-weight: bold;
+    text-align: center;
+    color: #dda15e;
+  }
