@@ -729,7 +729,7 @@ td {
   .img-pos3 {
     position: absolute;
     width: 100%;
-    top: 85%;
+    top: 75%;
     z-index: 999;
   }
 
@@ -760,9 +760,10 @@ td {
 @media screen and (max-width: 700px) {
   .arrow.pos2 {
     top: 220%;
+    z-index: 1001;
   }
   .display-1.pos2 {
-    top: 270%;
+    top: 230%;
   }
   .desc {
     top: 130%;
@@ -782,6 +783,10 @@ td {
   }
   .pagination {
     margin-top: 5%;
+  }
+  footer #pie_pagina {
+    background-color: #606c38;
+    margin: 0;
   }
 }
 
