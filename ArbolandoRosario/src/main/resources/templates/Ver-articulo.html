@@ -24,12 +24,18 @@
     <!-- Navbar template -->
     <nav th:replace="/plantillas/navbar :: navbar"></nav>
     <!-- Articulo -->
-    <div class="d-flex align-items-center min-vh-100">
+    <div style="
+    padding: 100px;
+    " class="d-flex align-items-center">
       <div class="container">
 
         <div class="contenido-articulo">
           <h1 class="nombre-articulo" th:text="${articulo.arbol.nombre}"></h1>
           <img class="img-articulo" th:src="${articulo.url_imagen}" alt="" />
+          <div style="margin-top: 20px;" th:if="${autorDelArticulo != null}" sec:authorize="isAuthenticated()" class="text-center">
+            <button th:if="${autorDelArticulo != null}" type="button" class="btn btn-primary">Editar</button>
+            <a th:if="${autorDelArticulo != null}" th:href="@{/eliminar-articulo(id=${articulo.idArticulo})}" type="button" class="btn btn-primary">Borrar</a>
+          </div>
           <div class="info-articulo">
             <p><span class="atributos">Nombre: </span><span th:text="${articulo.arbol.nombre}"></span></p>
             <p><span class="atributos">Nombre científico: </span><span th:text="${articulo.arbol.nombreCientifico}"></span></p>
@@ -38,10 +44,7 @@
             <p><span class="atributos">Tamaño: </span><span th:text="${articulo.arbol.tamanho}"></span></p>
           </div>
           <div class="descripcion-articulo" th:text="${articulo.arbol.informacion}"></div>
-          <div th:if="${autorDelArticulo != null}" sec:authorize="isAuthenticated()" class="text-center">
-            <button th:if="${autorDelArticulo != null}" type="button" class="btn btn-primary">Editar</button>
-            <a th:if="${autorDelArticulo != null}" th:href="@{/eliminar-articulo(id=${articulo.idArticulo})}" type="button" class="btn btn-primary">Borrar</a>
-          </div>
+          
         </div>
       </div>
     </div>
