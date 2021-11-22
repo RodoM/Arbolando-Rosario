@@ -38,6 +38,11 @@
       <p>Has finalizado sesión con éxito!</p>
       <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
+    <div th:if="${param.registro}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
+      <strong>Felicidades! </strong>
+      <p>Te has registrado con éxito!</p>
+      <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
     <div th:if="${param.login}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
       <strong>Felicidades! </strong>
       <p>Has iniciado sesión con éxito!</p>
