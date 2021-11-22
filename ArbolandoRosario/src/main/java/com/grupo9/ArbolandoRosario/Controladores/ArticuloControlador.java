@@ -1,7 +1,9 @@
 package com.grupo9.ArbolandoRosario.Controladores;
 
+import com.grupo9.ArbolandoRosario.Entidades.Arbol;
 import com.grupo9.ArbolandoRosario.Entidades.Articulo;
 import com.grupo9.ArbolandoRosario.Errores.ErrorServicio;
+import com.grupo9.ArbolandoRosario.Servicios.ArbolServicio;
 import com.grupo9.ArbolandoRosario.Servicios.ArticuloServicio;
 import com.grupo9.ArbolandoRosario.Servicios.UsuarioServicio;
 
@@ -24,6 +26,8 @@ public class ArticuloControlador {
     private ArticuloServicio articuloServicio;
     @Autowired
     private UsuarioServicio usuarioServicio;
+    @Autowired
+    private ArbolServicio arbolServicio;
 
     @GetMapping("/articulo")
     public String articulo(Model model) {
@@ -61,9 +65,9 @@ public class ArticuloControlador {
         Articulo art = articuloServicio.encontrarArticuloPorId(id);
         String emailOfUser = authentication.getName();
         String emailOfArt = art.getUsuario().getMail();
-        if(emailOfArt.equals(emailOfUser)){
+        if (emailOfArt.equals(emailOfUser)) {
             model.addAttribute("autorDelArticulo", 1);
-        }else{
+        } else {
             model.addAttribute("autorDelArticulo", null);
         }
         model.addAttribute("articulo", art);
@@ -75,11 +79,12 @@ public class ArticuloControlador {
         int idArticulo = params.get("id") != null ? Integer.valueOf(params.get("id").toString()) : 0;
         Long id = Long.valueOf(idArticulo);
         Articulo art = articuloServicio.encontrarArticuloPorId(id);
+        Arbol arbol = art.getArbol();
         art.setArbol(null);
         art.setUsuario(null);
         articuloServicio.guardarParaBorrar(art);
         Articulo art2 = articuloServicio.encontrarArticuloPorId(id);
-        articuloServicio.eliminar(art2);
+        articuloServicio.eliminar(art2, arbol);
         return "redirect:/";
     }
 }

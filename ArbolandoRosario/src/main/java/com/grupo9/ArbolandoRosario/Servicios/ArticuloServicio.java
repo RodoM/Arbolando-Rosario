@@ -49,13 +49,16 @@ public class ArticuloServicio {
         articulo.setAlta(true);
         articuloDAO.save(articulo);
     }
-    public void guardarParaBorrar(Articulo articulo){
+
+    public void guardarParaBorrar(Articulo articulo) {
         articuloDAO.save(articulo);
     }
 
     @Transactional
-    public void eliminar(Articulo articulo) {
+    public void eliminar(Articulo articulo, Arbol arbol) {
+        System.out.println(arbol.getNombre());
         articuloDAO.delete(articulo);
+        arbolDAO.delete(arbol);
     }
 
     public List<Articulo> buscarPorUsuario(Usuario user) {
