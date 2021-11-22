@@ -35,7 +35,7 @@ public class RegistroInicioSesionControlador {
     public String registroSend(Model model, Usuario usuario) {
         try{
             usuarioServicio.guardar(usuario);
-            return "redirect:/";
+            return "redirect:/?registro";
         }catch(ErrorServicio e){
             model.addAttribute("error", e.getMessage());
             return "Registro";
