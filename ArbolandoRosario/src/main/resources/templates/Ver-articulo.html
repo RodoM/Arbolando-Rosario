@@ -38,9 +38,9 @@
             <p><span class="atributos">Tamaño: </span><span th:text="${articulo.arbol.tamanho}"></span></p>
           </div>
           <div class="descripcion-articulo" th:text="${articulo.arbol.informacion}"></div>
-          <div sec:authorize="isAuthenticated()" class="text-center">
-            <button type="button" class="btn btn-primary">Editar</button>
-            <a th:href="@{/eliminar-articulo(id=${articulo.idArticulo})}" type="button" class="btn btn-primary">Borrar</a>
+          <div th:if="${autorDelArticulo != null}" sec:authorize="isAuthenticated()" class="text-center">
+            <button th:if="${autorDelArticulo != null}" type="button" class="btn btn-primary">Editar</button>
+            <a th:if="${autorDelArticulo != null}" th:href="@{/eliminar-articulo(id=${articulo.idArticulo})}" type="button" class="btn btn-primary">Borrar</a>
           </div>
         </div>
       </div>

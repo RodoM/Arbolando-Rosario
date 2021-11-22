@@ -55,9 +55,18 @@ public class ArticuloControlador {
     @GetMapping("/mostrar")
     public String buscarArticulo(@RequestParam Map<String, Object> params, Model model, Articulo articulo) {
         usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         int idArticulo = params.get("id") != null ? Integer.valueOf(params.get("id").toString()) : 0;
         Long id = Long.valueOf(idArticulo);
-        model.addAttribute("articulo", articuloServicio.encontrarArticuloPorId(id));
+        Articulo art = articuloServicio.encontrarArticuloPorId(id);
+        String emailOfUser = authentication.getName();
+        String emailOfArt = art.getUsuario().getMail();
+        if(emailOfArt.equals(emailOfUser)){
+            model.addAttribute("autorDelArticulo", 1);
+        }else{
+            model.addAttribute("autorDelArticulo", null);
+        }
+        model.addAttribute("articulo", art);
         return "Ver-articulo";
     }
 
