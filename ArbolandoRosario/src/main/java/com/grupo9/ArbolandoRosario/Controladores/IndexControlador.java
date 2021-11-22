@@ -14,4 +14,8 @@ public class IndexControlador {
         usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
         return "Index";
     }
+    @GetMapping("/privacidad") 
+    public String politicaPrivacidad (){
+        return "Privacidad";
+    }
 }
