@@ -23,11 +23,10 @@
     <!-- Awesome Icons -->
     <script src="https://kit.fontawesome.com/df20a26306.js" crossorigin="anonymous"></script>
     <title>Arbolando Rosario</title>
-    
   </head>
   <body>
     <!-- Navbar template -->
-  <nav th:replace="/plantillas/navbar :: navbar(avatar = ${avatar})"></nav>
+    <nav th:replace="/plantillas/navbar :: navbar(avatar = ${avatar})"></nav>
     <!-- Alertas de inicio/salida de sesión -->
     <div th:if="${success != null}" class="alert alert-primary alert-dismissible fade show ms-auto float-end" role="alert">
       <strong>Felicidades! </strong>
@@ -56,18 +55,18 @@
       <div class="text-bg">
         <h1 class="display-1 pos wow animate__animated animate__fadeInLeft" data-aos="fade-left">Info del proyecto</h1>
         <div class="desc wow animate__animated animate__fadeInRight">
-          <br>
-          <br>
+          <br />
+          <br />
           La ciudad de Rosario tiene una gran cantidad de árboles (420.000 según el último censo de 2019), y somos conocidos por ser una "ciudad
-          verde". Pero gran a pesar del interés creciente de la población en este tema y otros relacionados, a veces la información no es de fácil 
+          verde". Pero gran a pesar del interés creciente de la población en este tema y otros relacionados, a veces la información no es de fácil
           acceso o se encuentra dispersa.
-          <br>
+          <br />
           Arbolando Rosario surge de la idea de crear un "portal verde online", que le permita al usuario conocer la información disponible sobre los
           árboles que hay en la ciudad. La persona puede acceder libremente sin ser usuario del sitio, pero al registrarse puede tener funciones
           extras y realizar contribuciones al proyecto.
-          <br>
+          <br />
           Somos un equipo y una web en crecimiento, por lo que las sugerencias son siempre bienvenidas. ¡Esperamos que disfruten nuestro portal!
-          <br>
+          <br />
           <h3><b>Tree9</b></h3>
         </div>
       </div>
@@ -207,22 +206,23 @@
       </div>
     </section>
     <!-- Footer del index (Más info)-->
-
-    <footer class="footer pie-pagina" id="pie-pagina">
-      <div class="colum3">
-        <h1>Contacto</h1>
-        <div class="row2"></div>
-        <img src="">
-        <label>angelcilfone@hotmail.com</label>
-        <div class="container-footer">
-          <div class="copyright">
-            <b>© 2021 Todos los Derechos Reservados|♧Tree9</b>
+    <div class="footer-bg">
+      <footer class="footer pie-pagina" id="pie-pagina">
+        <div class="colum3">
+          <h1>Contacto</h1>
+          <div class="row2"></div>
+          <img src="" />
+          <label>angelcilfone@hotmail.com</label>
+          <div class="container-footer">
+            <div class="copyright">
+              <b>© 2021 Todos los Derechos Reservados|♧Tree9</b>
+            </div>
+            <div class="information">
+              <a th:href="@{/privacidad}">Política de Privacidad</a>
+            </div>
           </div>
-          <div class="information">
-            <a th:href="@{/privacidad}">Política de Privacidad</a>
-
-          </div>
-        </footer>
+        </div>
+      </footer>
     </div>
     <!-- Bootstrap JS -->
     <script

@@ -23,6 +23,10 @@ body {
   min-height: 100vh;
 }
 
+.min-vh-100 {
+  min-height: 90vh!important;
+}
+
 section.index {
   height: 100vh;
 }
@@ -180,6 +184,12 @@ h5 {
   color: #fefae0;
   text-transform: lowercase;
   font-size: 15px;
+}
+
+.card-text.info {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .img-left {
@@ -642,6 +652,13 @@ td {
   grid-row: 2 / 3;
 }
 
+.contenedor-desc {
+  grid-column: 2;
+  grid-row: 2 / 3;
+  height: 500px;
+  overflow-y: auto;
+}
+
 .info-articulo {
   margin-top: 15px;
   font-size: 20px;
@@ -683,6 +700,28 @@ td {
 
 .nav-link:hover {
   color: #bc6c25;
+}
+
+.h2-privacidad {
+  font-family: "Halant", serif;
+  font-size: 2.25rem;
+  font-weight: bold;
+  text-align: center;
+  color: #dda15e;
+}
+
+.h4-privacidad {
+  font-family: "Halant", serif;
+  font-size: 2.00rem;
+  font-weight: bold;
+  text-align: center;
+  color: #dda15e;
+}
+
+.contenido-privacidad {
+padding: 20px;
+background-color: #606c38;
+border-radius: 40px;
 }
 
 @media only screen and (max-width: 990px) {
@@ -831,38 +870,3 @@ footer #pie_pagina {
     min-height: 75%;
   }
 }
-
-/* .bg-music{
-  position: absolute;
-  top: 64%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-}
-
-.btn{
-  background-color: transparent;
-  color: #fff;
-  font-size: 10px;
-  border: none;
-  display: block;
-  margin: 0 auto;
-  opacity: 0.4;
-  transition: all linear .2s;
-  } */
-
-  .seccion-total .h2 {
-    font-family: "Halant", serif;
-    font-size: 1.25rem;
-    font-weight: bold;
-    text-align: center;
-    color: #dda15e;
-  }
-
-  .seccion-total .h4 {
-    font-family: "Halant", serif;
-    font-size: 1.00rem;
-    font-weight: bold;
-    text-align: center;
-    color: #dda15e;
-  }
