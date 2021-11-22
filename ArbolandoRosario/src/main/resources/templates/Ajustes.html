@@ -43,9 +43,6 @@
             <li class="nav-item">
               <a data-tab-target="#mod-mail" class="nav-link" href="#">Modificar mail</a>
             </li>
-            <li class="nav-item">
-              <a data-tab-target="#mod-perfil" class="nav-link" href="#">Modificar perfil</a>
-            </li>
           </ul>
 
           <form th:action="@{/cambiar-clave}" id="mod-contraseña" data-tab-content class="active">
@@ -72,28 +69,6 @@
             </div>
             
           </form>
-
-          <div id="mod-perfil" data-tab-content>
-            <h4 class="title text-center mt-4">Modificar perfil</h4>
-            <div class="form-input">
-              <input type="text" name="nombreUsuario" id="nombreUsuario" placeholder="Nuevo nombre de usuario" />
-            </div>
-            <div class="form-input">
-                <input type="text" name="edadUsuario" id="edadUsuario"  placeholder="Nueva edad de usuario" />
-            </div>
-            <div class="form-input">
-                <input type="text" name="zonaUsuario" id="zonaUsuario"  placeholder="Nueva zona de usuario" />
-            </div>
-            <div class="form-input">
-                <input type="text" name="descUsuario" id="descUsuario"  placeholder="Nueva descripción de usuario" />
-            </div>
-            <div class="form-input">
-                <input type="text" name="avatarUsuario" id="avatarUsuario"  placeholder="Nuevo avatar de usuario (url)" />
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-block text-uppercase">Confirmar</button>
-              </div>
-          </div>
         </div>
       </div>
     </div>

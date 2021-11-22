@@ -65,7 +65,12 @@ public class ArticuloControlador {
     public String eliminarArticulo(@RequestParam Map<String, Object> params, Articulo articulo) {
         int idArticulo = params.get("id") != null ? Integer.valueOf(params.get("id").toString()) : 0;
         Long id = Long.valueOf(idArticulo);
-        articuloServicio.eliminar(articuloServicio.encontrarArticuloPorId(id));
-        return "Explorar";
+        Articulo art = articuloServicio.encontrarArticuloPorId(id);
+        art.setArbol(null);
+        art.setUsuario(null);
+        articuloServicio.guardarParaBorrar(art);
+        Articulo art2 = articuloServicio.encontrarArticuloPorId(id);
+        articuloServicio.eliminar(art2);
+        return "redirect:/";
     }
 }

@@ -49,6 +49,9 @@ public class ArticuloServicio {
         articulo.setAlta(true);
         articuloDAO.save(articulo);
     }
+    public void guardarParaBorrar(Articulo articulo){
+        articuloDAO.save(articulo);
+    }
 
     @Transactional
     public void eliminar(Articulo articulo) {

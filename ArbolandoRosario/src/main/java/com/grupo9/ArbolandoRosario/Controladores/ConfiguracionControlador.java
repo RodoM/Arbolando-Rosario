@@ -1,7 +1,6 @@
 package com.grupo9.ArbolandoRosario.Controladores;
 
 import com.grupo9.ArbolandoRosario.Servicios.UsuarioServicio;
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -16,16 +15,19 @@ public class ConfiguracionControlador {
 
     @Autowired
     UsuarioServicio usuarioServicio;
+    
 
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping("/configuracion")
-    public String configuracion() {
+    public String configuracion(Model model) {
+        usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
         return "Ajustes";
     }
 
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping("/cambiar-clave")
     public String cambiarClave(@RequestParam String password, @RequestParam String newPassword, Model model) {
+        usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
         try {
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             usuarioServicio.cambiarContraseña(usuarioServicio.encontrarUsuarioPorMail(auth.getName()), password, newPassword);
