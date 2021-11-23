@@ -653,6 +653,10 @@ td {
   color: #dda15e;
 }
 
+.pagination {
+  margin-top: 8px;
+}
+
 .contenido-articulo {
   background-color: #606c38;
   border-radius: 40px;
