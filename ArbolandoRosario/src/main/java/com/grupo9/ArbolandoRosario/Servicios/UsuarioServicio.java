@@ -1,5 +1,6 @@
 package com.grupo9.ArbolandoRosario.Servicios;
 
+import com.grupo9.ArbolandoRosario.Entidades.Perfil;
 import com.grupo9.ArbolandoRosario.Repositorio.UsuarioDAO;
 import com.grupo9.ArbolandoRosario.enums.Rol;
 
@@ -8,6 +9,7 @@ import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 import com.grupo9.ArbolandoRosario.Entidades.Usuario;
 import com.grupo9.ArbolandoRosario.Errores.ErrorServicio;
+import com.grupo9.ArbolandoRosario.Repositorio.PerfilDAO;
 import java.util.ArrayList;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -28,6 +30,10 @@ public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private UsuarioDAO usuarioDao;
+    @Autowired
+    private PerfilServicio perfilServicio;
+    @Autowired
+    private PerfilDAO perfilDAO;
 
     @Transactional(readOnly = true)
     public List<Usuario> listarUsuarios() {

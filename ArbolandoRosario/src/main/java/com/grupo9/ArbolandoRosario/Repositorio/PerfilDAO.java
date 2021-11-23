@@ -8,4 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface PerfilDAO extends JpaRepository<Perfil, Long> {
 
     Perfil findByUsuarioMail(String mail);
+
+    Perfil findByUsuarioIdUsuario(Long id);
+
 }
