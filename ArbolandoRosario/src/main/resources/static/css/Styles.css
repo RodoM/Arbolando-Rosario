@@ -870,3 +870,8 @@ footer #pie_pagina {
     min-height: 75%;
   }
 }
+
+.footer-bg .infocont {
+
+  font-family: "Nunito Sans", sans-serif;
+}
