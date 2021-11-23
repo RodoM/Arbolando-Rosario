@@ -30,7 +30,7 @@
           <h1 class="nombre-articulo" th:text="${articulo.arbol.nombre}"></h1>
           <img class="img-articulo" th:src="${articulo.url_imagen}" alt="" />
           <div style="margin-top: 20px" th:if="${autorDelArticulo != null}" sec:authorize="isAuthenticated()" class="text-center">
-            <button th:if="${autorDelArticulo != null}" type="button" class="btn btn-primary">Editar</button>
+<!--            <button th:if="${autorDelArticulo != null}" type="button" class="btn btn-primary">Editar</button>-->
             <a th:if="${autorDelArticulo != null}" th:href="@{/eliminar-articulo(id=${articulo.idArticulo})}" type="button" class="btn btn-primary"
               >Borrar</a
             >
