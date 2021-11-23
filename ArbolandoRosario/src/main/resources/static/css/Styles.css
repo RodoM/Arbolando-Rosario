@@ -800,7 +800,7 @@ border-radius: 40px;
   .img-pos3 {
     position: absolute;
     width: 100%;
-    top: 75%;
+    top: 70%;
     z-index: 999;
   }
 
