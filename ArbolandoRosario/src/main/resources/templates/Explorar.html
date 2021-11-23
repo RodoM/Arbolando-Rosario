@@ -26,7 +26,20 @@
     <!-- Contenedor de las cartas -->
 
     <div th:if="${articulos.isEmpty()}">
-      <h1>No se encuentran artículos</h1>
+      <div class="d-flex align-items-center min-vh-100">
+        <div class="container">
+          <div class="row px-3">
+            <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+      
+              <div class="card-body text-center">
+                <img src="/img/Snag.png" alt="">
+                <h4 class="no-articulos">No hay articulos creados</h4>
+                <a th:href="@{/}"><button type="button" class="btn btn-primary">Crear articulo</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div style="margin-top: 20px;" class="d-flex align-items-center min-vh-100">
       <div class="container" th:if="${!articulos.isEmpty()}">

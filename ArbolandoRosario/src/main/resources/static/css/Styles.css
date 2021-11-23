@@ -154,6 +154,14 @@ h5 {
   color: #dda15e;
 }
 
+.no-articulos {
+  font-size: calc(1.5rem + 4.5vw);
+  font-weight: 300;
+  line-height: 75%;
+  font-family: "Halant", serif;
+  color: #dda15e;
+}
+
 .error-subtitle {
   font-size: calc(1rem + 0.5vw);
 }
