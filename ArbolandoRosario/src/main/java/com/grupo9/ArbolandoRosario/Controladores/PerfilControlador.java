@@ -11,8 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 import com.grupo9.ArbolandoRosario.Entidades.Articulo;
+import com.grupo9.ArbolandoRosario.Entidades.Perfil;
 import com.grupo9.ArbolandoRosario.Entidades.Usuario;
 import com.grupo9.ArbolandoRosario.Servicios.PerfilServicio;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class PerfilControlador {
@@ -34,13 +36,23 @@ public class PerfilControlador {
         model.addAttribute("cant", articulosAsociados.size());
         model.addAttribute("usuario", user);
         model.addAttribute("articulos", articulosAsociados);
+        model.addAttribute("perfil", perfilServicio.encontrarPerfilPorMail(auth.getName()));
         return "Perfil";
     }
 
     @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping("/configurar-perfil")
-    public String configurarPerfil() {
-        return "";
+    public String configuraPerfil(Perfil perfil, Model model) {
+        usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
+        return "Editar-perfil";
+    }
+
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+    @PostMapping("/configurar-perfil")
+    public String configurarPerfil(Perfil perfil) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        perfilServicio.guardar(perfil, authentication.getName());
+        return "Perfil";
     }
 
 }

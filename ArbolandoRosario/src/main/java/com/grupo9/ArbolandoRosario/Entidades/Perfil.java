@@ -23,6 +23,7 @@ public class Perfil implements Serializable {
     private String nombre;
     private String zona;
     private String telefono;
+    private String informacion;
 
     @OneToOne
     private Usuario usuario;

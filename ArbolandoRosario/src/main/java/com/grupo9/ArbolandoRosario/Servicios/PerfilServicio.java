@@ -22,4 +22,8 @@ public class PerfilServicio {
         perfil.setUsuario(user);
         perfilDAO.save(perfil);
     }
+
+    public Perfil encontrarPerfilPorMail(String emailOfUser) {
+        return perfilDAO.findByUsuarioMail(emailOfUser);
+    }
 }

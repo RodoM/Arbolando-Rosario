@@ -37,18 +37,22 @@
                 <button type="button" class="btn-close fas fa-times" data-bs-dismiss="alert" aria-label="Close"></button>
               </div>
               <h4 class="title text-center mt-4">Editar perfil</h4>
-              <form class="form-box px-3" th:action="" th:object="" method="POST">
+              <form class="form-box px-3" th:action="@{/configurar-perfil}" th:object="${perfil}" method="POST">
                 <div class="form-input">
-                  <input type="text" name="nombre" id="nombre" th:field="*{}" placeholder="Nombre de usuario" tabindex="10"/>
+                  <input type="text" name="nombre" id="nombre" th:field="*{nombre}" placeholder="Nombre de usuario" tabindex="10"/>
                 </div>
                 <div class="form-input">
-                  <input type="text" name="telefono" id="telefono" th:field="*{}" placeholder="Num de telefono" tabindex="10"/>
+                  <input type="text" name="telefono" id="telefono" th:field="*{telefono}" placeholder="Numero de contacto" tabindex="10"/>
+                </div>
+                  <div class="form-input">
+                  <input type="text" name="zona" id="zona" th:field="*{zona}" placeholder="Zona de Rosario" tabindex="10"/>
                 </div>
                 <div class="form-input">
-                  <textarea name="descripcion" id="descripcion" th:field="*{}" placeholder="Descripción"></textarea>
+                  <textarea name="informacion" id="informacion" th:field="*{informacion}" placeholder="Descripción corta"></textarea>
                 </div>
+
                 <div class="mb-3 text-center">
-                  <button type="submit" class="btn btn-block text-uppercase">Crear artículo</button>
+                  <button type="submit" class="btn btn-block text-uppercase">Editar perfil</button>
                 </div>
               </form>
             </div>

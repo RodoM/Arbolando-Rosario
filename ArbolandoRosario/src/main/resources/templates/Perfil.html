@@ -27,13 +27,14 @@
     <div class="d-flex align-items-center min-vh-100">
       <div class="container">
         <div class="contenido-perfil">
-          <h1 class="nombre-perfil" th:text="${usuario.mail}">Rodolfo Meroi</h1>
+          <h1 class="nombre-perfil" th:text="${usuario.mail}"></h1>
           <img class="img-perfil" th:src="${avatar}" alt="" />
           <div class="descripcion-perfil">
             Bienvenido a tu perfil, aqui podras ver todos los articulos que hayas creado.
           </div>
           <div class="info-perfil">
-            <p><span class="atributos">Nombre: </span>Sin especificar</p>
+            <p th:if="${perfil.nombre == null}"><span class="atributos">Nombre: </span>Sin especificar</p>
+            <p th:if="${perfil.nombre != null}"><span class="atributos">Nombre: </span><p th:text="${perfil.nombre}"></p>
             <p><span class="atributos">Contacto: </span><a href="#" class="register-link">Sin especificar</a></p>
           </div>
           <button type="button" class="btn btn-art btn-perfil">Editar</button>
