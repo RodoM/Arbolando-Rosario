@@ -31,15 +31,15 @@
           <img class="img-perfil" th:src="${avatar}" alt="" />
           <div class="descripcion-perfil">
               Bienvenido a tu perfil, aqui podrás ver todos los articulos que hayas creado.<br>
-             <p th:if="${perfil.informacion != null}" th:text="${perfil.informacion}"></p>
+<!--             <p th:if="${perfil.informacion != null}" th:text="${perfil.informacion}"></p>-->
           </div>
           <div class="info-perfil">
               <h1 class="titulo">Informacion personal</h1>
-            <p th:if="${perfil.nombre == null}"><span class="atributos">Nombre: </span>Sin especificar</p>
+<!--            <p th:if="${perfil.nombre == null}"><span class="atributos">Nombre: </span>Sin especificar</p>-->
             <span class="atributos">Nombre: </span><p th:if="${perfil.nombre != null}" th:text="${perfil.nombre}"></p>
-            <p th:if="${perfil.telefono == null}"><span class="atributos">Telefono: </span>Sin especificar</p>
+<!--            <p th:if="${perfil.telefono == null}"><span class="atributos">Telefono: </span>Sin especificar</p>-->
             <span class="atributos">Contacto: </span><p th:if="${perfil.telefono != null}" th:text="${perfil.telefono}"> </p>           
-            <p th:if="${perfil.zona == null}"><span class="atributos">Zona: </span>Sin especificar</p>
+<!--            <p th:if="${perfil.zona == null}"><span class="atributos">Zona: </span>Sin especificar</p>-->
             <span class="atributos">Zona: </span><p th:if="${perfil.zona != null}" th:text="${perfil.zona}"> </p>
           </div>
           <button  type="button" class="btn btn-art btn-perfil"><a th:href="@{/configurar-perfil}">Editar</a></button>

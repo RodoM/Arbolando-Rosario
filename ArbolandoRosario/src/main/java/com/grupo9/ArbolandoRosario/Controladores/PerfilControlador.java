@@ -36,7 +36,13 @@ public class PerfilControlador {
         model.addAttribute("cant", articulosAsociados.size());
         model.addAttribute("usuario", user);
         model.addAttribute("articulos", articulosAsociados);
-        model.addAttribute("perfil", perfilServicio.encontrarPerfilPorMail(auth.getName()));
+        Perfil perfil = perfilServicio.encontrarPerfilPorMail(auth.getName());
+        if (perfil != null) {
+            model.addAttribute("perfil", perfil);
+        } else {
+            Perfil perfilVacio = perfilServicio.guardarVacio(auth.getName());
+            model.addAttribute("perfil", perfilVacio);
+        }
         return "Perfil";
     }
 

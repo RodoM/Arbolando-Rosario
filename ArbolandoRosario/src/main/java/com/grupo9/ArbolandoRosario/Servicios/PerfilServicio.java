@@ -23,7 +23,24 @@ public class PerfilServicio {
         perfilDAO.save(perfil);
     }
 
+    @Transactional
+    public Perfil guardarVacio(String emailOfUser) {
+        Usuario user = usuarioServicio.encontrarUsuarioPorMail(emailOfUser);
+        Perfil perfil = new Perfil();
+        perfil.setUsuario(user);
+        perfil.setNombre(null);
+        perfil.setInformacion(null);
+        perfil.setTelefono(null);
+        perfil.setZona(null);
+        perfilDAO.save(perfil);
+        return perfil;
+    }
+
     public Perfil encontrarPerfilPorMail(String emailOfUser) {
         return perfilDAO.findByUsuarioMail(emailOfUser);
+    }
+
+    public Perfil encontrarPerfilPorIdUsuario(Long idUsuario) {
+        return perfilDAO.findByUsuarioIdUsuario(idUsuario);
     }
 }
