@@ -40,7 +40,8 @@ public class PerfilControlador {
         if (perfil != null) {
             model.addAttribute("perfil", perfil);
         } else {
-            Perfil perfilVacio = perfilServicio.guardarVacio(auth.getName());
+            //Perfil perfilVacio = perfilServicio.guardarVacio(auth.getName());
+            Perfil perfilVacio = new Perfil();
             model.addAttribute("perfil", perfilVacio);
         }
         return "Perfil";
@@ -50,6 +51,7 @@ public class PerfilControlador {
     @GetMapping("/configurar-perfil")
     public String configuraPerfil(Perfil perfil, Model model) {
         usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
+        model.addAttribute("perfil", perfil);
         return "Editar-perfil";
     }
 
@@ -58,7 +60,7 @@ public class PerfilControlador {
     public String configurarPerfil(Perfil perfil) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         perfilServicio.guardar(perfil, authentication.getName());
-        return "Perfil";
+        return "redirect:/perfil";
     }
 
 }

@@ -7,9 +7,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import com.grupo9.ArbolandoRosario.Servicios.UsuarioServicio;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class ErrorsControlador implements ErrorController {
+    @Autowired
+    UsuarioServicio usuarioServicio;
     @RequestMapping(value = "/error", method = {RequestMethod.GET,RequestMethod.POST})
     public String mostrarPaginaDeError(Model model,HttpServletRequest httpServletRequest){
         String mensajeError = "";
@@ -32,6 +36,7 @@ public class ErrorsControlador implements ErrorController {
                 break;
             default:
         }// los 400 son errores de cliente. los 500 son de servidor
+        usuarioServicio.ValidacionesAvatarYAgregarAlModelo(model);
         model.addAttribute("codigo", codigoError);
         model.addAttribute("mensaje", mensajeError);
             return "/error";
