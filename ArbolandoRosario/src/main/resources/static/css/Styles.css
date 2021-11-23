@@ -48,6 +48,7 @@ section.index {
   text-decoration: none;
   white-space: nowrap;
   font-family: "Halant", serif;
+  transition: 0.5s;
 }
 
 .navbar-light .navbar-nav .nav-link {
