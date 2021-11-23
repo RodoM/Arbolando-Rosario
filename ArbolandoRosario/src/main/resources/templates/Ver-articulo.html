@@ -40,7 +40,7 @@
             <p><span class="atributos">Nombre científico: </span><span th:text="${articulo.arbol.nombreCientifico}"></span></p>
             <p><span class="atributos">Tipo: </span><span th:text="${articulo.arbol.tipoArbol.nombre}"></span></p>
             <p><span class="atributos">Origen: </span><span th:text="${articulo.arbol.origen}"></span></p>
-            <p><span class="atributos">Tamaño: </span><span th:text="${articulo.arbol.tamanho}"></span></p>
+            <p><span class="atributos">Tamaño: </span><span th:text="${articulo.arbol.tamanho} + m"></span></p>
             <!-- <p><span class="atributos">Autor: </span><a th:href="@{/perfil}+'?id='+${articulo.usuario.idUsuario}" style="text-decoration: none;"><span th:text="${articulo.usuario.mail}"></a></span></p> -->
           </div>
           <div class="contenedor-desc">
