@@ -30,7 +30,7 @@
           <h1 class="nombre-perfil" th:text="${usuario.mail}">Rodolfo Meroi</h1>
           <img class="img-perfil" th:src="${avatar}" alt="" />
           <div class="descripcion-perfil">
-            Bienvenido a tu perfil, aqui prodras ver todos los articulos que hayas creado.
+            Bienvenido a tu perfil, aqui podras ver todos los articulos que hayas creado.
           </div>
           <!-- <div class="info-perfil">
             <p><span class="atributos">Nombre: </span>Rodolfo Meroi</p>
@@ -46,7 +46,7 @@
               <table class="table table-borderless">
                 <tbody th:each=" articulo, iterador : ${articulos}">
                   <tr>
-                    <th scope="row" th:text="${iterador.index}">1</th>
+                    <th scope="row" th:text="${iterador.index}+1">1</th>
                     <td th:text="${articulo.arbol.nombre}">Nombre del arbol</td>
                     <td><a th:href="@{/mostrar}+'?id='+${articulo.idArticulo}" style="text-decoration: none;"><button type="button" class="btn btn-art">Visitar</button></a></td> 
                   </tr>
