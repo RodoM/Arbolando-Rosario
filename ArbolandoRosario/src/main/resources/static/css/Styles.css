@@ -213,6 +213,12 @@ h5 {
   background-size: cover;
 }
 
+.img-left3 {
+  width: 45%;
+  background: url(../img/edit-profile-pic.jpg) center;
+  background-size: cover;
+}
+
 .title {
   margin-bottom: 2rem;
   font-weight: bold;
@@ -624,6 +630,12 @@ a.dropdown-item {
 .info-perfil {
   font-size: 20px;
   grid-column: 1;
+}
+
+.btn-perfil {
+  grid-column: 1;
+  height: 50px;
+  width: 250px;
 }
 
 .articulos-perfil {

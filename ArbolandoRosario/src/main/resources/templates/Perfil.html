@@ -32,13 +32,11 @@
           <div class="descripcion-perfil">
             Bienvenido a tu perfil, aqui prodras ver todos los articulos que hayas creado.
           </div>
-          <!-- <div class="info-perfil">
-            <p><span class="atributos">Nombre: </span>Rodolfo Meroi</p>
-            <p><span class="atributos">Edad: </span>21</p>
-            <p><span class="atributos">Zona: </span>Norte</p>
-            <p><span class="atributos">Contacto: </span><a href="#" class="register-link">mail</a></p>
-          </div> -->
-
+          <div class="info-perfil">
+            <p><span class="atributos">Nombre: </span>Sin especificar</p>
+            <p><span class="atributos">Contacto: </span><a href="#" class="register-link">Sin especificar</a></p>
+          </div>
+          <button type="button" class="btn btn-art btn-perfil">Editar</button>
           <div class="articulos-perfil">
             <h1 class="nombre-perfil">Articulos del usuario (<span th:text="${cant}"></span>):</h1>
             <h1 th:if="${articulos == null || articulos.size() == 0}">No hay articulos creados</h1>
